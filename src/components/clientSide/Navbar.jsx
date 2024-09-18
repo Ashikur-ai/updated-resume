@@ -27,9 +27,9 @@ const Navbar = () => {
                                 </div>
 
                                 <div className="flex items-center gap-3 ">
-                                    <img src="https://res.cloudinary.com/deifi77os/image/upload/v1724211497/Portfolio/npllwlnvvtk73floiqow.png"
+                                    <img src="https://res.cloudinary.com/deifi77os/image/upload/v1726680899/Portfolio/dylum9u4vdxunqttctma.png"
                                         type="image/x-icon" className="w-8" alt="" />
-                                    <span className="font-bold text-2xl">₭𝒂ყ𝔲𝙢</span>
+                                    <span className="font-bold text-2xl">Ashikur</span>
                                 </div>
                             </div>
                         </div>
@@ -56,6 +56,9 @@ const Navbar = () => {
                     </div>
 
                 </div>
+
+
+
                 {/* Desktop view  */}
                 <div className=" hidden lg:flex ">
                     <div className=' container mx-auto'>
@@ -80,9 +83,9 @@ const Navbar = () => {
 
 
                                 <div className="flex items-center gap-3 ">
-                                    <img src="https://res.cloudinary.com/dqescabbl/image/upload/v1725814749/imagesa_1_ygjmqe.png"
-                                        type="image/x-icon" className="w-12 bg-green-600 p-2 rounded-full" alt="" />
-                                    <span className="font-bold text-2xl uppercasei">₭𝒂ყ𝔲𝙢</span>
+                                    <img src="https://res.cloudinary.com/deifi77os/image/upload/v1726680899/Portfolio/dylum9u4vdxunqttctma.png"
+                                        type="image/x-icon" className="w-12 bg-theme_primary p-2 rounded-full" alt="" />
+                                    <span className="font-bold text-2xl uppercase">Ashikur</span>
                                 </div>
 
 
