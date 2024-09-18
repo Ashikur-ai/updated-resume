@@ -19,7 +19,7 @@ const HomePage = () => {
       <Portfolio></Portfolio>
       <MyResult></MyResult>
       <Discus></Discus>
-      <BlogPost></BlogPost>
+      {/* <BlogPost></BlogPost> */}
      
        
     </div>

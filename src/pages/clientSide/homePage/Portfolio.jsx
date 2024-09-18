@@ -13,16 +13,16 @@ const Portfolio = () => {
       <div className="flex flex-col lg:flex-row justify-between items-center">
         <h2 className="lg:text-6xl text-5xl font-semibold">
           Lets have a look at <br /> my{" "}
-          <span className="text-theme_orange">Portfolio</span>
+          <span className="text-theme_primary">Portfolio</span>
         </h2>
         <div>
-          <button className="bg-theme_orange py-3 mt-5 lg:mt-0 px-6 text-white rounded-[60px]">
+          <button className="bg-theme_primary py-3 mt-5 lg:mt-0 px-6 text-white rounded-[60px]">
             See All
           </button>
         </div>
       </div>
 
-      <div className="relative  h-max py-12">
+      <div className="relative w-11/12 mx-auto h-max py-12">
         <Swiper
           effect={"cube"}
           grabCursor={true}
@@ -76,23 +76,49 @@ const Portfolio = () => {
                  </div>
              </div>
           </SwiperSlide>
+
+          <SwiperSlide>
+            <div className="flex gap-8 w-full">
+              <div>
+                <img src="https://res.cloudinary.com/dqescabbl/image/upload/v1725826782/Frame_27_dbadb0.png" alt="" />
+              </div>
+              <div>
+                <img src="https://res.cloudinary.com/dqescabbl/image/upload/v1725826782/Frame_27_dbadb0.png" alt="" />
+              </div>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="flex gap-8 w-full">
+              <div>
+                <img src="https://res.cloudinary.com/dqescabbl/image/upload/v1725826782/Frame_27_dbadb0.png" alt="" />
+              </div>
+              <div>
+                <img src="https://res.cloudinary.com/dqescabbl/image/upload/v1725826782/Frame_27_dbadb0.png" alt="" />
+              </div>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="flex gap-8 w-full">
+              <div>
+                <img src="https://res.cloudinary.com/dqescabbl/image/upload/v1725826782/Frame_27_dbadb0.png" alt="" />
+              </div>
+              <div>
+                <img src="https://res.cloudinary.com/dqescabbl/image/upload/v1725826782/Frame_27_dbadb0.png" alt="" />
+              </div>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="flex gap-8 w-full">
+              <div>
+                <img src="https://res.cloudinary.com/dqescabbl/image/upload/v1725826782/Frame_27_dbadb0.png" alt="" />
+              </div>
+              <div>
+                <img src="https://res.cloudinary.com/dqescabbl/image/upload/v1725826782/Frame_27_dbadb0.png" alt="" />
+              </div>
+            </div>
+          </SwiperSlide>
         </Swiper>
       </div>
-
-      <div className=" flex flex-wrap lg:flex-nowrap gap-5 justify-center py-12">
-           <button className="bg-[#F2F4F7] py-2.5 px-5 rounded-[24px] ">landing Page</button>
-           <button className="bg-[#F2F4F7] py-2.5 px-5 rounded-[24px] ">Web Design</button>
-           <button className="bg-[#F2F4F7] py-2.5 px-5 rounded-[24px] ">Animation</button>
-           <button className="bg-[#F2F4F7] py-2.5 px-5 rounded-[24px] ">Glassmorphism</button>
-           <button className="bg-[#F2F4F7] py-2.5 px-5 rounded-[24px] ">Cards</button>
-           
-      </div>
-
-      <div className="flex flex-col lg:flex-row justify-center gap-3">
-          <h2 className="lg:text-5xl text-4xl text-center lg:text-start  font-bold">Lirante - Food Dilvery Solution</h2>
-          <GoArrowUpRight className="bg-theme_orange text-white rounded-full p-1 text-5xl mx-auto lg:mx-0"></GoArrowUpRight>
-      </div>
-      <p className="w-2/4 mx-auto opacity-85 text-center mt-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue interdum ligula a dignissim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lobortis orci elementum egestas lobortis.</p>
     </div>
   );
 };

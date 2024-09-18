@@ -2,7 +2,7 @@ const WorkExperience = () => {
   return (
     <div className="container mx-auto  my-5">
       <p className="text-5xl font-bold text-center py-5">
-        My <span className="text-[#fd853a]">Work Experience</span>
+        My <span className="text-theme_primary">Work Experience</span>
       </p>
 
       <div className="flex flex-col lg:flex-row justify-between mt-10 gap-12">
