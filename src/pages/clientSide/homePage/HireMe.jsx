@@ -3,31 +3,39 @@
 const HireMe = () => {
     return (
         <div className="bg-[#F2F4F7]">
-            <div className="container mx-auto">
-                <div className="flex flex-col lg:flex-row items-center justify-center gap-6 py-16 px-12">
-                    <div>
-                        <img src="https://res.cloudinary.com/dqescabbl/image/upload/v1725824831/Mask_group_fnnhif.png" alt="" />
+            <div className="container mx-auto ">
+                <div className="flex flex-col lg:flex-row items-center justify-between gap-6 py-16 px-12">
+                    <div className="lg:w-1/2 ">
+                        <div>
+                            <img src="" alt="" />
+                            <img src="https://res.cloudinary.com/deifi77os/image/upload/v1726688995/Portfolio/anltbfkpdm079ctkrlo2.png" alt="" className="w-3/4 rounded-2xl mx-auto" />
+                        </div>
                     </div>
-                    <div className="space-y-8">
-                        <h2 className="text-6xl font-medium">Why <span className="text-theme_orange">Hire me</span>?</h2>
-                        <p className="lg:w-2/3  font-medium text-xl text-[#AEB6C4]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate, bibendum sodales </p>
-                        <div className="flex justify-between w-2/3">
+
+                    <div className="space-y-8 lg:w-1/2">
+                        <h2 className="text-center lg:text-start text-3xl lg:text-6xl font-medium">Why <span className="text-theme_orange">Hire me</span>?</h2>
+                        <p className="lg:w-2/3  font-medium lg:text-xl text-[#AEB6C4]">
+                            As a full-stack developer with deep expertise in both the MERN stack and Laravel, I bring a versatile skill set that allows me to tackle a wide range of development projects. My combination of technical expertise and hands-on teaching experience ensures that I not only deliver scalable, efficient web solutions but also understand the importance of clear communication and mentorship.
+                        </p>
+                        <div className="flex justify-between lg:w-2/3">
                             <div>
-                                <h2 className="text-2xl font-bold">450+</h2>
-                                <p className="text-[#AEB6C4]">Project Completed</p>
+                                <h2 className="text-2xl font-bold text-theme_primary">8+</h2>
+                                <p className="text-[#AEB6C4]">Running Project</p>
                             </div>
                             <div>
-                                <h2  className="text-2xl font-bold">450+</h2>
+                                <h2 className="text-2xl font-bold text-theme_primary">10+</h2>
                                 <p className="text-[#AEB6C4]">Project Completed</p>
                             </div>
                         </div>
-                        <button className="py-5 px-8 border border-black rounded-2xl text-2xl font-medium">Hire me</button>
+                        <div className="">
+                            <button className="py-5 px-8 border text-white bg-theme_primary rounded-2xl text-2xl font-medium">Hire me</button>
+                        </div>
                     </div>
 
                 </div>
 
             </div>
-            
+
         </div>
     );
 };

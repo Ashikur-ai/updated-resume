@@ -59,7 +59,7 @@ const Banner = () => {
             <div className='bg-white btn btn-glass z-50 lg:-mt-20  lg:px-6  lg:bottom-10 bottom-7 lg:left-32 md:left-36 left-9 inline-block lg:h-20 rounded-[60px]'>
               <div className='flex  gap-3 opacity-[100%] my-3'>
                 <button onMouseEnter={handleIconEnter} onMouseLeave={handleIconLeave} className='bg-theme_primary lg:px-5 px-3 py-1.5 lg:py-2.5
-              rounded-[60px]  lg:text-2xl flex items-center gap-2 text-white '>Portfolio <GoArrowUpRight className={`${valueChage ? '' : 'hidden'}`} /></button>
+              rounded-[60px]  lg:text-2xl flex items-center gap-2 text-white '>Resume <GoArrowUpRight className={`${valueChage ? '' : 'hidden'}`} /></button>
 
                 <button className='bg-theme_primary px-5 lg:py-2.5
               rounded-[60px]  lg:text-2xl flex items-center gap-2 text-white '>Hire me <GoArrowUpRight /></button>
