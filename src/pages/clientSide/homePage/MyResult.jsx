@@ -40,7 +40,7 @@ const MyResult = () => {
 
       <div>
         <Swiper
-          slidesPerView={"auto"}
+          slidesPerView={1}
           centeredSlides={true}
           spaceBetween={30}
           pagination={{
@@ -50,68 +50,25 @@ const MyResult = () => {
           className="mySwiper"
         >
           <SwiperSlide>
-           <div className="flex  gap-12">
-              <SwipSlide></SwipSlide>
-               <SwipSlide className='hidden lg:block'></SwipSlide>
-           </div>
+              <SwipSlide className='hidden lg:block'></SwipSlide>
           </SwiperSlide>
-
           <SwiperSlide>
-          <div className="flex gap-12">
-               <SwipSlide></SwipSlide>
-               <SwipSlide className='hidden lg:block'></SwipSlide>
-           </div>
+            <SwipSlide className='hidden lg:block'></SwipSlide>
           </SwiperSlide>
-
-
           <SwiperSlide>
-          <div className="flex gap-12">
-               <SwipSlide></SwipSlide>
-               <SwipSlide className='hidden lg:block'></SwipSlide>
-           </div>
+            <SwipSlide className='hidden lg:block'></SwipSlide>
           </SwiperSlide>
 
-          <SwiperSlide>
-          <div className="flex gap-12">
-               <SwipSlide></SwipSlide>
-               <SwipSlide className='hidden lg:block'></SwipSlide>
-           </div>
-          </SwiperSlide>
+          
 
-          <SwiperSlide>
-          <div className="flex gap-12">
-              <SwipSlide></SwipSlide>
-               <SwipSlide className='hidden lg:block'></SwipSlide>
-           </div>
-          </SwiperSlide>
 
-          <SwiperSlide>
-          <div className="flex gap-12">
-                <SwipSlide></SwipSlide>
-               <SwipSlide className='hidden lg:block'></SwipSlide>
-           </div>
-          </SwiperSlide>
+         
 
-          <SwiperSlide>
-          <div className="flex gap-12">
-               <SwipSlide></SwipSlide>
-               <SwipSlide className='hidden lg:block'></SwipSlide>
-           </div>
-          </SwiperSlide>
+         
 
-          <SwiperSlide>
-          <div className="flex gap-12">
-             <SwipSlide></SwipSlide>
-               <SwipSlide className='hidden lg:block'></SwipSlide>
-           </div>
-          </SwiperSlide>
+          
 
-          <SwiperSlide>
-          <div className="flex gap-12">
-                <SwipSlide></SwipSlide>
-               <SwipSlide className='hidden lg:block'></SwipSlide>
-           </div>
-          </SwiperSlide>
+          
         </Swiper>
       </div>
     </div>

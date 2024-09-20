@@ -14,7 +14,7 @@ const HireMe = () => {
 
                     <div className="space-y-8 lg:w-1/2">
                         <h2 className="text-center lg:text-start text-3xl lg:text-6xl font-medium">Why <span className="text-theme_primary">Hire me</span>?</h2>
-                        <p className="lg:w-2/3  font-medium lg:text-xl text-[#AEB6C4]">
+                        <p className="lg:w-2/3  font-medium lg:text-xl text-black">
                             As a full-stack developer with deep expertise in both the MERN stack and Laravel, I bring a versatile skill set that allows me to tackle a wide range of development projects. My combination of technical expertise and hands-on teaching experience ensures that I not only deliver scalable, efficient web solutions but also understand the importance of clear communication and mentorship.
                         </p>
                         <div className="flex justify-between lg:w-2/3">
@@ -27,8 +27,8 @@ const HireMe = () => {
                                 <p className="text-[#AEB6C4]">Project Completed</p>
                             </div>
                         </div>
-                        <div className="">
-                            <button className="py-5 px-8 border text-white bg-theme_primary rounded-2xl text-2xl font-medium">Hire me</button>
+                        <div className="text-center lg:text-start">
+                            <button className="lg:py-5 py-2 px-8 border text-white bg-theme_primary rounded-2xl lg:text-2xl font-medium">Hire me</button>
                         </div>
                     </div>
 

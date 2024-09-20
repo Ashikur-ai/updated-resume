@@ -22,26 +22,26 @@ const Discus = () => {
           alt=""
           className="w-5 mx-auto -top-3 lg:right-44 right-7 absolute"
         />
-        <div className="relative">
-          <img
-            className="absolute -right-5 -top-3"
-            src="https://res.cloudinary.com/dqescabbl/image/upload/v1725847442/Vector_1_f2bcrf.png"
-            alt=""
-          />
-          <p className="">
-            Ready to Build Something Great Together? Let’s Talk!
-          </p>
-          <img
-            className="absolute -bottom-3"
-            src="https://res.cloudinary.com/dqescabbl/image/upload/v1725847442/Vector_1_f2bcrf.png"
-            alt=""
-          />
-        </div>
+          <div className="relative">
+            <img
+              className="absolute -right-5 -top-3"
+              src="https://res.cloudinary.com/dqescabbl/image/upload/v1725847442/Vector_1_f2bcrf.png"
+              alt=""
+            />
+            <p className="">
+              Ready to Build Something Great Together? Let’s Talk!
+            </p>
+            <img
+              className="absolute -bottom-3"
+              src="https://res.cloudinary.com/dqescabbl/image/upload/v1725847442/Vector_1_f2bcrf.png"
+              alt=""
+            />
+          </div>
 
-        <div className="border rounded-[60px] p-4 flex justify-between flex-col lg:flex-row md:flex-row items-center w-full">
-              <div className="flex gap-5  lg:w-full">
-                <MdEmail className="text-theme_primary bg-[#FFEAD5] p-3 text-6xl rounded-full"></MdEmail>
-                <input type="email" placeholder="Enter Your Email Address" className="outline-none text-black" />
+        <div className="lg:border rounded-[60px] p-4 flex justify-between flex-col lg:flex-row  items-center w-full">
+              <div className="flex lg:flex-row flex-col  items-center gap-5  lg:w-full">
+                <MdEmail className="text-theme_primary bg-[#FFEAD5] p-3 text-6xl rounded-full hidden lg:flex"></MdEmail>
+                <input type="email" placeholder="Enter Your Email Address" className="outline-none text-black my-5 border lg:border-0 rounded-lg p-5 lg:p-0" />
               </div>
 
               <div className="">
