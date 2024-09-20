@@ -6,6 +6,7 @@ import "swiper/css/pagination";
 import "./Portfolio.css";
 import { EffectCube, Pagination } from "swiper/modules";
 import { GoArrowUpRight } from "react-icons/go";
+import { Link } from "react-router-dom";
 
 const Portfolio = () => {
   return (
@@ -16,9 +17,11 @@ const Portfolio = () => {
           <span className="text-theme_primary">Projects</span>
         </h2>
         <div>
-          <button className="bg-theme_primary py-3 mt-5 lg:mt-0 px-6 text-white rounded-[60px]">
-            See All
-          </button>
+          <Link to={"/project"}>
+            <button className="bg-theme_primary py-3 mt-5 lg:mt-0 px-6 text-white rounded-[60px]">
+              See All
+            </button>
+          </Link>
         </div>
       </div>
 

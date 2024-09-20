@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const HireMe = () => {
@@ -28,7 +29,9 @@ const HireMe = () => {
                             </div>
                         </div>
                         <div className="text-center lg:text-start">
-                            <button className="lg:py-5 py-2 px-8 border text-white bg-theme_primary rounded-2xl lg:text-2xl font-medium">Hire me</button>
+                            <Link to={"/contact-us"}>
+                                <button className="lg:py-5 py-2 px-8 border text-white bg-theme_primary rounded-2xl lg:text-2xl font-medium">Hire me</button>
+                            </Link>
                         </div>
                     </div>
 

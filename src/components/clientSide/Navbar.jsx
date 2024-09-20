@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 
 const Navbar = () => {
@@ -26,11 +27,13 @@ const Navbar = () => {
                                     </svg>
                                 </div>
 
-                                <div className="flex items-center gap-3 ">
-                                    <img src="https://res.cloudinary.com/deifi77os/image/upload/v1726680899/Portfolio/dylum9u4vdxunqttctma.png"
-                                        type="image/x-icon" className="w-8" alt="" />
-                                    <span className="font-bold text-2xl">Ashikur</span>
-                                </div>
+                                <Link>
+                                    <div className="flex items-center gap-3 ">
+                                        <img src="https://res.cloudinary.com/deifi77os/image/upload/v1726680899/Portfolio/dylum9u4vdxunqttctma.png"
+                                            type="image/x-icon" className="w-8" alt="" />
+                                        <span className="font-bold text-2xl">Ashikur</span>
+                                    </div>
+                                </Link>
                             </div>
                         </div>
 
@@ -39,17 +42,23 @@ const Navbar = () => {
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                             <div className="bg-base-300">
                                     <div className="buttons">
+                                    <Link to={"/"}>
                                         <button
                                             className="text-white hover:bg-theme_orange duration-300 py-3 px-8 hover:font-bold  rounded-3xl">Home</button>
+                                    </Link>
                                     </div>
                                     <div className="buttons">
+                                    <Link to={"/about"}>
                                         <button
                                             className="text-white hover:bg-theme_orange duration-300 py-3 px-8 hover:font-bold  rounded-3xl">About</button>
+                                    </Link>
                                     </div>
 
                                     <div className="buttons">
+                                    <Link to={"/services"}>
                                         <button
                                             className="text-white hover:bg-theme_orange duration-300 py-3 px-8 hover:font-bold  rounded-3xl">Service</button>
+                                    </Link>
                                     </div>
                                 </div>
                         </ul>
@@ -67,41 +76,55 @@ const Navbar = () => {
 
                                 <div className="flex">
                                     <div className="buttons">
-                                        <button
-                                            className="text-white hover:bg-theme_orange duration-300 py-3 px-8 hover:font-bold  rounded-3xl">Home</button>
+                                        <Link to={"/"}>
+                                            <button
+                                                className="text-white hover:bg-theme_orange duration-300 py-3 px-8 hover:font-bold  rounded-3xl">Home</button>
+                                        </Link>
                                     </div>
                                     <div className="buttons">
-                                        <button
-                                            className="text-white hover:bg-theme_orange duration-300 py-3 px-8 hover:font-bold  rounded-3xl">About</button>
+                                        <Link to={"/about"}>
+                                            <button
+                                                className="text-white hover:bg-theme_orange duration-300 py-3 px-8 hover:font-bold  rounded-3xl">About</button>
+                                        </Link>
                                     </div>
 
                                     <div className="buttons">
-                                        <button
-                                            className="text-white hover:bg-theme_orange duration-300 py-3 px-8 hover:font-bold  rounded-3xl">Service</button>
+                                        <Link to={"/services"}>
+                                            <button
+                                                className="text-white hover:bg-theme_orange duration-300 py-3 px-8 hover:font-bold  rounded-3xl">Service</button>
+                                        </Link>
                                     </div>
                                 </div>
 
 
-                                <div className="flex items-center gap-3 ">
-                                    <img src="https://res.cloudinary.com/deifi77os/image/upload/v1726680899/Portfolio/dylum9u4vdxunqttctma.png"
-                                        type="image/x-icon" className="w-12 bg-theme_primary p-2 rounded-full" alt="" />
-                                    <span className="font-bold text-2xl uppercase">Ashikur</span>
-                                </div>
+                                <Link to={"/"}>
+                                    <div className="flex items-center gap-3 ">
+                                        <img src="https://res.cloudinary.com/deifi77os/image/upload/v1726680899/Portfolio/dylum9u4vdxunqttctma.png"
+                                            type="image/x-icon" className="w-12 bg-theme_primary p-2 rounded-full" alt="" />
+                                        <span className="font-bold text-2xl uppercase">Ashikur</span>
+                                    </div>
+                                </Link>
 
 
                                 <div className="flex">
                                     <div className="buttons">
-                                        <button
-                                            className="text-white hover:bg-theme_orange duration-300 py-3 px-8  hover:font-bold  rounded-3xl">Resume</button>
+                                        <Link to={"https://drive.google.com/file/d/1McooBW_qjrTudp97BWw-D6vcESTS60jG/view?usp=sharing"} target="_blank">
+                                            <button
+                                                className="text-white hover:bg-theme_orange duration-300 py-3 px-8  hover:font-bold  rounded-3xl">Resume</button>
+                                        </Link>
                                     </div>
                                     <div className="buttons">
-                                        <button
-                                            className="text-white hover:bg-theme_orange duration-300 py-3 px-8  hover:font-bold  rounded-3xl">Project</button>
+                                        <Link to={"/project"}>
+                                            <button
+                                                className="text-white hover:bg-theme_orange duration-300 py-3 px-8  hover:font-bold  rounded-3xl">Project</button>
+                                        </Link>
                                     </div>
 
                                     <div className="buttons">
-                                        <button
-                                            className="text-white hover:bg-theme_orange duration-300 py-3 px-8  hover:font-bold  rounded-3xl">Contact</button>
+                                        <Link to={"/contact-us"}>
+                                            <button
+                                                className="text-white hover:bg-theme_orange duration-300 py-3 px-8  hover:font-bold  rounded-3xl">Contact</button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

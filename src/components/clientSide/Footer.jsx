@@ -2,6 +2,7 @@
 import { FaFacebookSquare, FaInstagramSquare, FaLinkedin, FaTwitterSquare, FaWhatsappSquare, FaYoutubeSquare } from 'react-icons/fa'
 import { GoArrowUpRight } from 'react-icons/go'
 import { IoSend } from 'react-icons/io5'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
     return (
@@ -10,7 +11,9 @@ const Footer = () => {
 
                 <div className="lg:flex space-y-2 justify-between items-center mt-8 w-full">
                     <p className='lg:text-5xl text-3xl  font-bold'>Let&apos;s Connect There</p>
-                    <button className='bg-theme_primary px-5 lg:py-3 rounded-2xl p-1 lg:text-2xl flex items-center gap-2'>Hire Me <GoArrowUpRight /></button>
+                    <Link to={"/contact-us"}>
+                        <button className='bg-theme_primary px-5 lg:py-3 rounded-2xl p-1 lg:text-2xl flex items-center gap-2'>Hire Me <GoArrowUpRight /></button>
+                    </Link>
                 </div>
 
                 <div className="border border-white w-full opacity-30 mt-16 mb-8"></div>
