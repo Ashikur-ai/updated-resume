@@ -1,5 +1,6 @@
 import { FaLaravel, FaReact, FaWordpress } from "react-icons/fa";
 import { GoArrowUpRight } from "react-icons/go";
+import { Link } from "react-router-dom";
 
 
 const Service = () => {
@@ -12,21 +13,25 @@ const Service = () => {
 
                 </div>
 
-                <div className="grid grid-cols-3 gap-5 mt-16 w-10/12 mx-auto">
-            
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-16 w-10/12 mx-auto">
+
                     <div className="bg-white rounded-br-[100px] text-black rounded-3xl relative ">
-                        <h2 className="text-2xl py-8 px-4">MERN  Development</h2>
+                        <h2 className="text-2xl py-8 px-4">MERN Development</h2>
 
                         <hr className="mb-8" />
                         <div className="text-[200px] flex justify-center text-blue-950 mb-5">
                             <FaReact />
                         </div>
+
                         <div className="bg-black p-2 rounded-full bg-cover   absolute bottom-0 right-0">
-                            <button><GoArrowUpRight className="text-8xl bg-theme_primary p-5 rounded-full text-white"></GoArrowUpRight></button>
+                            <Link to={"/mern-services"}>
+                                <button><GoArrowUpRight className="text-8xl bg-theme_primary p-5 rounded-full text-white"></GoArrowUpRight></button>
+                            </Link>
                         </div>
+
                     </div>
 
-                    
+
 
                     <div className="bg-white rounded-br-[100px] text-black rounded-3xl relative ">
                         <h2 className="text-2xl py-8 px-4">Laravel  Development</h2>
@@ -36,7 +41,9 @@ const Service = () => {
                             <FaLaravel />
                         </div>
                         <div className="bg-black p-2 rounded-full bg-cover   absolute bottom-0 right-0">
-                            <button><GoArrowUpRight className="text-8xl bg-theme_primary p-5 rounded-full text-white"></GoArrowUpRight></button>
+                            <Link to={"/laravel-services"}>
+                                <button><GoArrowUpRight className="text-8xl bg-theme_primary p-5 rounded-full text-white"></GoArrowUpRight></button>
+                            </Link>
                         </div>
                     </div>
 
@@ -48,12 +55,14 @@ const Service = () => {
                             <FaWordpress />
                         </div>
                         <div className="bg-black p-2 rounded-full bg-cover   absolute bottom-0 right-0">
-                            <button><GoArrowUpRight className="text-8xl bg-theme_primary p-5 rounded-full text-white"></GoArrowUpRight></button>
+                            <Link to={"/wordpress-services"}>
+                                <button><GoArrowUpRight className="text-8xl bg-theme_primary p-5 rounded-full text-white"></GoArrowUpRight></button>
+                            </Link>
                         </div>
                     </div>
 
-                    
-                    
+
+
 
                 </div>
 
