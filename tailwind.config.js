@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      animation: {
+        'slow-spin': 'spin 10s linear infinite', // Change '10s' to the desired duration
+      },
       colors: {
         theme_primary:"#0eb6f0",
         theme_orange:"#fb6514",

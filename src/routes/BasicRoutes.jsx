@@ -9,47 +9,67 @@ import ProjectPage from '../pages/clientSide/projectPage/ProjectPage';
 import MERNServices from '../pages/clientSide/servicesPage/mern/MERNServices';
 import LaravelServices from '../pages/clientSide/servicesPage/laravel/LaravelServices';
 import WordpressServices from '../pages/clientSide/servicesPage/wordpress/WordpressServices';
+import DashboardLayout from '../layouts/DashboardLayout';
+import ManageServices from '../pages/adminSide/services/ManageServices';
 
 const router = createBrowserRouter([
-    {
-      path:"/",
-      element: <MainLayout></MainLayout>,
-      children:[
-        {
-            path:"/",
-            element:<HomePage></HomePage>
-        },
-        {
-            path:"/contact-us",
-            element: <ContactUs></ContactUs>
-        },
-        {
-          path: "/services",
-          element: <ServicePage></ServicePage>
-        },
-        {
-          path: "/mern-services",
-          element: <MERNServices></MERNServices>
-        },
-        {
-          path: "/laravel-services",
-          element: <LaravelServices></LaravelServices>
-        },
-        {
-          path: "/wordpress-services",
-          element: <WordpressServices></WordpressServices>
-        },
-        {
-          path: "/about",
-          element: <AboutUsPage></AboutUsPage>
-        },
-        {
-          path: "/project",
-          element: <ProjectPage></ProjectPage>
-        }
-      ]
-    }
-   
-  ]); 
+  {
+    path: "/",
+    element: <MainLayout></MainLayout>,
+    children: [
+      {
+        path: "/",
+        element: <HomePage></HomePage>
+      },
+      {
+        path: "/contact-us",
+        element: <ContactUs></ContactUs>
+      },
+      {
+        path: "/services",
+        element: <ServicePage></ServicePage>
+      },
+      {
+        path: "/mern-services",
+        element: <MERNServices></MERNServices>
+      },
+      {
+        path: "/laravel-services",
+        element: <LaravelServices></LaravelServices>
+      },
+      {
+        path: "/wordpress-services",
+        element: <WordpressServices></WordpressServices>
+      },
+      {
+        path: "/about",
+        element: <AboutUsPage></AboutUsPage>
+      },
+      {
+        path: "/project",
+        element: <ProjectPage></ProjectPage>
+      }
+    ]
+  },
+
+  // Dashboard related layouts 
+  {
+    path: "/dashboard",
+    element: <DashboardLayout></DashboardLayout>,
+    children: [
+      {
+        path: "/dashboard",
+        element: <div>Dashboard</div>
+      },
+      {
+        path: "services",
+        element: <ManageServices></ManageServices>
+      }
+    ]
+  }
+
+
+
+]);
 
 export default router;

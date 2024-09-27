@@ -4,15 +4,18 @@ import { FaReact } from 'react-icons/fa';
 const MernBanner = () => {
   return (
     <div>
-      <div className="min-h-screen">
+      <div className="">
         <div className="lg:flex justify-between">
-          <div className="border flex justify-center  items-center lg:w-1/2">
-            <p className='text-7xl '>
-              Crafting Exceptional Experiences: MERN Stack Development Services
-            </p>
+          <div className=" flex justify-center  items-center lg:w-1/2">
+            <div>
+              <p className='text-6xl font-semibold'>
+                Crafting Exceptional Experiences: MERN Stack Development Services
+              </p>
+              
+           </div>
           </div>
-          <div className="border lg:w-1/2 flex justify-center text-[500px]">
-            <FaReact />  
+          <div className=" lg:w-1/2 flex justify-center text-[500px]  animate-slow-spin ">
+            <FaReact className='animate-pulse text-blue-600' />  
           </div>
         </div>
       </div>
