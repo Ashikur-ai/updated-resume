@@ -11,6 +11,9 @@ import LaravelServices from '../pages/clientSide/servicesPage/laravel/LaravelSer
 import WordpressServices from '../pages/clientSide/servicesPage/wordpress/WordpressServices';
 import DashboardLayout from '../layouts/DashboardLayout';
 import ManageServices from '../pages/adminSide/services/ManageServices';
+import ManageProjects from '../pages/adminSide/projects/ManageProjects';
+import Dashboard from '../pages/adminSide/dashboard/Dashboard';
+import UpdateServicePage from '../pages/adminSide/services/UpdateServicePage';
 
 const router = createBrowserRouter([
   {
@@ -59,12 +62,22 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/dashboard",
-        element: <div>Dashboard</div>
+        element: <Dashboard></Dashboard>
       },
+      // service related routes 
       {
         path: "services",
         element: <ManageServices></ManageServices>
-      }
+      },
+      {
+        path: "update-service/:id",
+        element: <UpdateServicePage></UpdateServicePage>
+      },
+      {
+        path: "projects",
+        element: <ManageProjects></ManageProjects>
+      },
+      
     ]
   }
 

@@ -3,6 +3,12 @@ import axios from 'axios';
 export const uploadFile = async (file) => {
   const cloudName = import.meta.env.VITE_CLOUD_NAME;
 
+  // Check if the environment variable is set
+  if (!cloudName) {
+    console.error('Cloud name is not set in environment variables.');
+    return '';
+  }
+
   if (!file) {
     console.error('No file selected for upload.');
     return '';
@@ -10,22 +16,17 @@ export const uploadFile = async (file) => {
 
   const data = new FormData();
   data.append('file', file);
-  data.append('upload_preset', 'portfolio_present');
+  data.append('upload_preset', 'file_preset');
 
-  // Determine the resource type based on file type
-  let resourceType = 'auto'; // Default to 'auto', Cloudinary will detect the type
-  if (file.type.startsWith('image')) {
-    resourceType = 'image';
-  } else if (file.type.startsWith('video')) {
-    resourceType = 'video';
-  } else {
-    resourceType = 'raw'; // For PDFs, text, or any other non-image, non-video files
-  }
+  // Set resource type directly to 'raw' since you're uploading PDFs
+  const resourceType = 'raw';
 
   try {
     // Use the correct resource type in the API URL
-    let api = `https://api.cloudinary.com/v1_1/${cloudName}/${resourceType}/upload`;
-    const res = await axios.post(api, data);
+    const api = `https://api.cloudinary.com/v1_1/${cloudName}/${resourceType}/upload`;
+    const res = await axios.post(api, data, {
+      timeout: 10000, // Optional: add timeout to avoid long-hanging requests
+    });
 
     const { secure_url, public_id, resource_type } = res.data;
 
@@ -40,7 +41,12 @@ export const uploadFile = async (file) => {
 
     return secure_url;
   } catch (error) {
-    console.error('Error uploading the file:', error.response?.data || error.message);
+    // Handle potential errors
+    if (error.response) {
+      console.error('Error uploading the file:', error.response.data);
+    } else {
+      console.error('Error uploading the file:', error.message);
+    }
     return '';
   }
 };

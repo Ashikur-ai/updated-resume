@@ -85,9 +85,11 @@ const Sidebar = () => {
           }`}
       >
         <div className="flex justify-between items-center p-4 gap-8">
-          <div className={`text-2xl font-bold ${!isSidebarOpen && 'hidden'}`}>
-            Ashikur's Portfolio
-          </div>
+          <Link to={"/"}>
+            <div className={`text-2xl font-bold ${!isSidebarOpen && 'hidden'}`}>
+              Ashikur's Portfolio
+            </div>
+          </Link>
           <button
             onClick={toggleSidebar}
             className="text-white focus:outline-none"
@@ -114,7 +116,11 @@ const Sidebar = () => {
             </li>
 
             <li className="mb-4">
-              <Dropdown buttonText="Seminar" urls={seminarUrls} />
+              <NavigationItem
+                to="/dashboard/projects"
+                icon={MdDesignServices}
+                label="Projects"
+              />
             </li>
 
             <li className="mb-4">

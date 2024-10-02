@@ -1,23 +1,17 @@
 import React, { useState } from 'react';
-import { uploadImage } from '../../../uploadImg/UploadImage';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
-import Swal from 'sweetalert2';
 import { useQuery } from '@tanstack/react-query';
-import ManageServicesTable from './ManageServicesTable';
+import { uploadImage } from '../../../uploadImg/UploadImage';
+import Swal from 'sweetalert2';
+import { useParams } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
-const ManageServices = () => {
+const UpdateServicePage = () => {
 
-  const [imageName, setImageName] = useState('');
   const axiosPublic = useAxiosPublic();
+  const [imageName, setImageName] = useState('');
+  const { id } = useParams();
 
-  const { data: services = [], refetch } = useQuery({
-    queryKey: ['services'],
-    queryFn: async () => {
-      const res = await axiosPublic.get('/service');
-      return res.data;
-
-    }
-  })
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
@@ -26,29 +20,39 @@ const ManageServices = () => {
     }
   };
 
+  const { data: service = [], refetch } = useQuery({
+    queryKey: ['service'],
+    queryFn: async () => {
+      const res = await axiosPublic.get(`/service/${id}`);
+      return res.data;
+
+    }
+  })
 
   // Submit handler
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const image = form.image.files[0];
     const serviceName = form.service.value;
-    
+    const { service: incomingUrl } = serviceName;
+
     // Upload image to cloudinary
     let serviceImageUrl = '';
     if (!image?.name) {
-      serviceImageUrl = ''
+      serviceImageUrl = incomingUrl
     } else {
       serviceImageUrl = await uploadImage(image);
     }
 
     const data = { serviceImageUrl, serviceName };
     console.log(data);
-    axiosPublic.post('/service', data)
+    axiosPublic.put(`/service/${id}`, data)
       .then(res => {
-        console.log(res.data);
-        if (res.data.insertedId) {
+        // console.log(res.data);
+        if (res) {
           console.log('data added');
+          toast.loading('uploading');
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -59,47 +63,16 @@ const ManageServices = () => {
         }
         refetch(); // Refetch the services data to display the newly added service
       })
-    .catch()
+      .catch()
     form.reset();
 
   };
 
-  const handleDelete = (id) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
-    }).then((result) => {
-      if (result.isConfirmed) {
-        axiosPublic.delete(`/service/${id}`)
-          .then(res => {
-            if (res?.data?.deletedCount) {
-              Swal.fire({
-                title: "Deleted!",
-                text: "Service has been deleted.",
-                icon: "success"
-              });
-              refetch()
-            }
-          })
-          .catch(err => {
-            console.log(err);
-          })
-
-      }
-    });
-  }
-
-  
-
+  console.log(service);
 
   return (
     <div className=" mx-auto mt-10 p-6 bg-white shadow-md rounded-lg">
-      <h2 className="text-2xl font-semibold text-center mb-6">Upload Service Image & Name</h2>
+      <h2 className="text-2xl font-semibold text-center mb-6">Update <span className="text-theme_primary">{service.serviceName}</span> Service</h2>
       <form onSubmit={handleSubmit} className="space-y-6 max-w-lg mx-auto">
         {/* Image Upload Section */}
         <div className="flex flex-col items-center">
@@ -124,8 +97,15 @@ const ManageServices = () => {
             </span>
           )}
 
-        
 
+
+        </div>
+
+        <p className="">Already Uploaded Image</p>
+        <div className="avatar">
+          <div className="w-24 rounded-xl">
+            <img src={service.serviceImageUrl} />
+          </div>
         </div>
 
 
@@ -134,7 +114,7 @@ const ManageServices = () => {
           <label className="label">
             <span className="label-text">Service Name</span>
           </label>
-          <input type="text" name='service' placeholder="Enter Service Name" className="input input-bordered" required />
+          <input type="text" name='service' defaultValue={service.serviceName} placeholder="Enter Service Name" className="input input-bordered" required />
 
         </div>
 
@@ -149,11 +129,9 @@ const ManageServices = () => {
         </div>
       </form>
 
-      <section>
-        <ManageServicesTable services={services} handleDelete={handleDelete}></ManageServicesTable>
-      </section>
+
     </div>
   );
 };
 
-export default ManageServices;
+export default UpdateServicePage;
