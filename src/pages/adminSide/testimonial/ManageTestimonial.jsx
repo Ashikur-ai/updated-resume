@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { uploadImage } from '../../../uploadImg/UploadImage';
-import useAxiosPublic from '../../../hooks/useAxiosPublic';
-import Swal from 'sweetalert2';
-import { useQuery } from '@tanstack/react-query';
-import ManageServicesTable from './ManageServicesTable';
 import { Helmet } from 'react-helmet-async';
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import { useQuery } from '@tanstack/react-query';
+import { uploadImage } from '../../../uploadImg/UploadImage';
+import Swal from 'sweetalert2';
 
-const ManageServices = () => {
+const ManageTestimonial = () => {
 
   const [imageName, setImageName] = useState('');
   const axiosPublic = useAxiosPublic();
@@ -29,38 +28,42 @@ const ManageServices = () => {
 
 
   // Submit handler
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const image = form.image.files[0];
-    const serviceName = form.service.value;
-    
+    const name = form.name.value;
+    const company = form.company.value;
+    const position = form.position.value;
+    const location = form.location.value;
+    const testimonial = form.testimonial.value;
+
     // Upload image to cloudinary
-    let serviceImageUrl = '';
+    let personImageUrl = '';
     if (!image?.name) {
-      serviceImageUrl = ''
+      personImageUrl = ''
     } else {
-      serviceImageUrl = await uploadImage(image);
+      personImageUrl = await uploadImage(image);
     }
 
-    const data = { serviceImageUrl, serviceName };
-    console.log(data);
-    axiosPublic.post('/service', data)
+    const data = { personImageUrl, name, company, position, location, testimonial};
+    // console.log(data);
+    axiosPublic.post('/testimonial', data)
       .then(res => {
         console.log(res.data);
         if (res.data.insertedId) {
-          console.log('data added');
+          // console.log('data added');
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: "Application Submitted",
+            title: "Testimonial Added",
             showConfirmButton: false,
             timer: 1500
           });
         }
         refetch(); // Refetch the services data to display the newly added service
       })
-    .catch()
+      .catch()
     form.reset();
 
   };
@@ -95,16 +98,14 @@ const ManageServices = () => {
     });
   }
 
-  
-
 
   return (
     <div className=" mx-auto mt-10 p-6 bg-white shadow-md rounded-lg">
       <Helmet>
         <title>Dashboard | Create Service</title>
       </Helmet>
-      <h2 className="text-2xl font-semibold text-center mb-6">Upload Service Image & Name</h2>
-      <form onSubmit={handleSubmit} className="space-y-6 max-w-lg mx-auto">
+      <h2 className="text-2xl font-semibold text-center mb-6">Upload Testimonials</h2>
+      <form onSubmit={handleSubmit} className="space-y-6 w-1/2 mx-auto">
         {/* Image Upload Section */}
         <div className="flex flex-col items-center">
 
@@ -117,7 +118,7 @@ const ManageServices = () => {
               accept="image/*"
               onChange={handleImageUpload}
             />
-            <span className="text-green-600 text-2xl">+ Upload Service Image</span>
+            <span className="text-green-600 text-2xl">+ Upload Person's Image</span>
             <span className="text-sm text-gray-500">Supported Format:png, jpg, jpeg, webp</span>
           </label>
 
@@ -128,17 +129,56 @@ const ManageServices = () => {
             </span>
           )}
 
-        
+
 
         </div>
 
 
-        {/* Text Input */}
+        <div className="grid grid-cols-2 gap-3">
+          {/* name */}
+          <div className="form-control ">
+            <label className="label">
+              <span className="label-text">Full Name</span>
+            </label>
+            <input type="text" name='name' placeholder="Enter Name" className="input input-bordered" required />
+
+          </div>
+
+          {/* company */}
+          <div className="form-control ">
+            <label className="label">
+              <span className="label-text">Company</span>
+            </label>
+            <input type="text" name='company' placeholder="Enter Company Name" className="input input-bordered" required />
+
+          </div>
+
+          {/* position */}
+          <div className="form-control ">
+            <label className="label">
+              <span className="label-text">Position</span>
+            </label>
+            <input type="text" name='position' placeholder="Enter Position" className="input input-bordered" required />
+
+          </div>
+
+          {/* location */}
+          <div className="form-control ">
+            <label className="label">
+              <span className="label-text">Company Location</span>
+            </label>
+            <input type="text" name='location' placeholder="Enter Company Location" className="input input-bordered" required />
+
+          </div>
+
+        </div>
+
+        {/* testimonial */}
         <div className="form-control ">
           <label className="label">
-            <span className="label-text">Service Name</span>
+            <span className="label-text">Testimonial</span>
           </label>
-          <input type="text" name='service' placeholder="Enter Service Name" className="input input-bordered" required />
+          <textarea type="text" name='testimonial' placeholder="Enter His Testimonial" className="input input-bordered h-52 " required />
 
         </div>
 
@@ -153,11 +193,9 @@ const ManageServices = () => {
         </div>
       </form>
 
-      <section>
-        <ManageServicesTable services={services} handleDelete={handleDelete}></ManageServicesTable>
-      </section>
+
     </div>
   );
 };
 
-export default ManageServices;
+export default ManageTestimonial;

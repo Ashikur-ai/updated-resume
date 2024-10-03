@@ -1,9 +1,23 @@
+import { useQuery } from "@tanstack/react-query";
 import { FaLaravel, FaReact, FaWordpress } from "react-icons/fa";
 import { GoArrowUpRight } from "react-icons/go";
 import { Link } from "react-router-dom";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 
 const Service = () => {
+    const axiosPublic = useAxiosPublic();
+
+    const { data: services = [] } = useQuery({
+        queryKey: ['services'],
+        queryFn: async () => {
+            const res = await axiosPublic('/service');
+            return res.data;
+        }
+    })
+
+    console.log(services);
+
     return (
         <div className="bg-black py-16 lg:px-8 text-white  bg-contain rounded-2xl">
             <div className="container mx-auto">
@@ -15,51 +29,31 @@ const Service = () => {
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-16 w-10/12 mx-auto">
 
-                    <div className="bg-white rounded-br-[100px] text-black rounded-3xl relative ">
-                        <h2 className="text-2xl py-8 px-4">MERN Development</h2>
+                    {
+                        services.map(service => <div key={service._id} className="bg-white rounded-br-[100px] text-black rounded-3xl relative ">
+                            <h2 className="text-2xl py-8 px-4">{service.serviceName }</h2>
 
-                        <hr className="mb-8" />
-                        <div className="text-[200px] flex justify-center text-blue-950 mb-5">
-                            <FaReact />
-                        </div>
+                            <hr className="mb-8" />
+                            <div className="text-[200px] flex justify-center text-blue-950 mb-5 py-10">
+                                <div className="avatar">
+                                    <div className="ring-primary ring-offset-base-100 w-24 rounded-full ring ring-offset-2">
+                                        <img src={`${service.serviceImageUrl}`} />
+                                    </div>
+                                </div>
+                            </div>
 
-                        <div className="bg-black p-2 rounded-full bg-cover   absolute bottom-0 right-0">
-                            <Link to={"/mern-services"}>
-                                <button><GoArrowUpRight className="text-8xl bg-theme_primary p-5 rounded-full text-white"></GoArrowUpRight></button>
-                            </Link>
-                        </div>
+                            <div className="bg-black p-2 rounded-full bg-cover   absolute bottom-0 right-0">
+                                <Link to={"/mern-services"}>
+                                    <button><GoArrowUpRight className="text-8xl bg-theme_primary p-5 rounded-full text-white"></GoArrowUpRight></button>
+                                </Link>
+                            </div>
 
-                    </div>
+                        </div>)
+                    }
 
 
 
-                    <div className="bg-white rounded-br-[100px] text-black rounded-3xl relative ">
-                        <h2 className="text-2xl py-8 px-4">Laravel  Development</h2>
-
-                        <hr className="mb-8" />
-                        <div className="text-[200px] flex justify-center text-red-700">
-                            <FaLaravel />
-                        </div>
-                        <div className="bg-black p-2 rounded-full bg-cover   absolute bottom-0 right-0">
-                            <Link to={"/laravel-services"}>
-                                <button><GoArrowUpRight className="text-8xl bg-theme_primary p-5 rounded-full text-white"></GoArrowUpRight></button>
-                            </Link>
-                        </div>
-                    </div>
-
-                    <div className="bg-white rounded-br-[100px] text-black rounded-3xl relative ">
-                        <h2 className="text-2xl py-8 px-4">Wordpress  Development</h2>
-
-                        <hr className="mb-8" />
-                        <div className="text-[200px] flex justify-center text-black">
-                            <FaWordpress />
-                        </div>
-                        <div className="bg-black p-2 rounded-full bg-cover   absolute bottom-0 right-0">
-                            <Link to={"/wordpress-services"}>
-                                <button><GoArrowUpRight className="text-8xl bg-theme_primary p-5 rounded-full text-white"></GoArrowUpRight></button>
-                            </Link>
-                        </div>
-                    </div>
+                   
 
 
 

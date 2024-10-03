@@ -14,6 +14,7 @@ import ManageServices from '../pages/adminSide/services/ManageServices';
 import ManageProjects from '../pages/adminSide/projects/ManageProjects';
 import Dashboard from '../pages/adminSide/dashboard/Dashboard';
 import UpdateServicePage from '../pages/adminSide/services/UpdateServicePage';
+import ManageTestimonial from '../pages/adminSide/testimonial/ManageTestimonial';
 
 const router = createBrowserRouter([
   {
@@ -77,6 +78,10 @@ const router = createBrowserRouter([
         path: "projects",
         element: <ManageProjects></ManageProjects>
       },
+      {
+        path: "testimonial",
+        element: <ManageTestimonial></ManageTestimonial>
+      }
       
     ]
   }

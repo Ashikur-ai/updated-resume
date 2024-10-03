@@ -3,7 +3,7 @@ import { BsMenuButtonWideFill } from 'react-icons/bs';
 import { GrMoney } from 'react-icons/gr';
 import { IoMdCard } from 'react-icons/io';
 import { IoCartOutline, IoCloseCircleOutline } from 'react-icons/io5';
-import { MdMenuOpen, MdOutlineCategory, MdOutlineDiscount, MdOutlineLockPerson } from 'react-icons/md';
+import { MdMenuOpen, MdOutlineCategory, MdOutlineDiscount, MdOutlineLockPerson, MdOutlineRateReview } from 'react-icons/md';
 import { RiAdminLine } from 'react-icons/ri';
 import { RxDashboard } from 'react-icons/rx';
 import { NavLink } from 'react-router-dom';
@@ -120,6 +120,14 @@ const Sidebar = () => {
                 to="/dashboard/projects"
                 icon={MdDesignServices}
                 label="Projects"
+              />
+            </li>
+
+            <li className="mb-4">
+              <NavigationItem
+                to="/dashboard/testimonial"
+                icon={MdOutlineRateReview}
+                label="Testimonials"
               />
             </li>
 
