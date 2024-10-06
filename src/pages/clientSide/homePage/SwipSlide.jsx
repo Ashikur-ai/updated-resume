@@ -14,12 +14,12 @@ const SwipSlide = ({testimonial}) => {
             <p className="leading-relaxed text-lg">{testimonial?.testimonial }</p>
             <span className="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6"></span>
             <h2 className="text-white font-medium title-font tracking-wider text-sm">{ testimonial?.name }</h2>
-            <p className="text-gray-500">{testimonial?.position} | { testimonial?.location }</p>
+            <p className="text-gray-500">{testimonial?.position} | {testimonial?.company} | { testimonial?.location }</p>
           </div>
           <div className=" text-center">
             <div className="avatar text-center">
               <div className="w-24 rounded-full">
-                <img src="https://i.ibb.co/RGKMVWB/Whats-App-Image-2024-01-22-at-3-39-42-PM-removebg-preview.png" className="bg-white"/>
+                <img src={testimonial?.personImageUrl} className="bg-white"/>
               </div>
             </div>
           </div>

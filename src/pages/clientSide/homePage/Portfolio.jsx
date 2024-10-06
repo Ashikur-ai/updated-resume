@@ -12,7 +12,7 @@ const Portfolio = () => {
   return (
     <div className="container mx-auto py-16">
       <div className="flex flex-col lg:flex-row justify-between items-center">
-        <h2 className="lg:text-6xl text-5xl font-semibold text-center lg:text-start">
+        <h2 className="lg:text-4xl text-3xl font-semibold text-center lg:text-start">
           Lets have a look at <br /> my{" "}
           <span className="text-theme_primary">Projects</span>
         </h2>

@@ -22,8 +22,8 @@ const Service = () => {
         <div className="bg-black py-16 lg:px-8 text-white  bg-contain rounded-2xl">
             <div className="container mx-auto">
                 <div className="flex flex-col lg:flex-row md:flex-row justify-between gap-5">
-                    <h2 className="text-7xl font-bold text-center lg:text-start">My <span className="text-theme_primary">Service</span></h2>
-                    <p className="text-xl font-medium opacity-80 lg:w-1/2 text-center lg:text-start">Building powerful, scalable web applications with the MERN stack while mentoring the next generation of developers. </p>
+                    <h2 className="text-5xl font-bold text-center lg:text-start">My <span className="text-theme_primary">Service</span></h2>
+                    <p className="text-xs font-medium opacity-80 lg:w-1/2 text-center lg:text-start">Building powerful, scalable web applications with the MERN stack while mentoring the next generation of developers. </p>
 
                 </div>
 

@@ -59,16 +59,16 @@ const Banner = () => {
 
 
             <div className='bg-white btn btn-glass z-50 lg:-mt-20  lg:px-6  lg:bottom-10 bottom-7 lg:left-32 md:left-36 left-9 inline-block lg:h-20 rounded-[60px]'>
-              <div className='flex  gap-3 opacity-[100%] my-3'>
+              <div className='flex  gap-3 opacity-[100%] my-4'>
                 <Link to={"https://drive.google.com/file/d/1McooBW_qjrTudp97BWw-D6vcESTS60jG/view?usp=sharing"} target='_blank'>
                   <button className='bg-theme_primary lg:px-5 px-3 py-1.5 lg:py-2.5
-              rounded-[60px]  lg:text-2xl flex items-center gap-2 text-white hover:scale-105 hover:duration-300 hover:delay-100'>Resume <GoArrowUpRight />
+              rounded-[60px]  lg:text-xl flex items-center gap-2 text-white hover:scale-105 hover:duration-300 hover:delay-100'>Resume <GoArrowUpRight />
                   </button>
                 </Link>
 
                 <Link to={"/contact-us"}>
                   <button className='bg-theme_primary px-5 py-1.5 lg:py-2.5
-              rounded-[60px]  lg:text-2xl flex items-center gap-2 text-white hover:scale-105 hover:duration-300 hover:delay-100'>Hire me <GoArrowUpRight /></button>
+              rounded-[60px]  lg:text-xl flex items-center gap-2 text-white hover:scale-105 hover:duration-300 hover:delay-100'>Hire me <GoArrowUpRight /></button>
                 </Link>
               </div>
             </div>
