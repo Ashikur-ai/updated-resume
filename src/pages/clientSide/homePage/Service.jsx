@@ -30,11 +30,12 @@ const Service = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-16 w-10/12 mx-auto">
 
                     {
-                        services.map(service => <div key={service._id} className="bg-white rounded-br-[100px] text-black rounded-3xl relative ">
-                            <h2 className="text-2xl py-8 px-4">{service.serviceName }</h2>
+                        services.map(service =>
+                            <div key={service._id} className="bg-white rounded-br-[100px] text-black rounded-3xl relative">
+                            <h2 className="text-xl py-8 px-4">{service.serviceName }</h2>
 
-                            <hr className="mb-8" />
-                            <div className="text-[200px] flex justify-center text-blue-950 mb-5 py-10">
+                            {/* <hr className="" /> */}
+                            <div className=" flex justify-center text-blue-950 mb-5 pt-10">
                                 <div className="avatar">
                                     <div className="ring-primary ring-offset-base-100 w-24 rounded-full ring ring-offset-2">
                                         <img src={`${service.serviceImageUrl}`} />

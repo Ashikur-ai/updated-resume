@@ -11,7 +11,7 @@ import WorkExperience from './WorkExperience'
 
 const HomePage = () => {
   return (
-    <div className=''>
+    <div className=' '>
       <Banner></Banner>
       <Service></Service>
       <WorkExperience></WorkExperience>
