@@ -4,9 +4,22 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 
 import SwipSlide from "./SwipSlide";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 
 const MyResult = () => {
+  const axiosPublic = useAxiosPublic();
+  const { data: testimonials = [] } = useQuery({
+    queryKey: ['testimonials'],
+    queryFn: async() => {
+      const res = await axiosPublic.get('/testimonial');
+      return res.data;
+    }
+  })
+
+  console.log(testimonials);
+
   return (
     <div className="bg-black py-16 px-8 text-white   bg-contain  rounded-2xl">
       <div className="container mx-auto  text-center w-2/3 relative  space-y-2">
@@ -49,15 +62,13 @@ const MyResult = () => {
           modules={[Pagination]}
           className="mySwiper"
         >
-          <SwiperSlide>
-              <SwipSlide className='hidden lg:block'></SwipSlide>
-          </SwiperSlide>
-          <SwiperSlide>
-            <SwipSlide className='hidden lg:block'></SwipSlide>
-          </SwiperSlide>
-          <SwiperSlide>
-            <SwipSlide className='hidden lg:block'></SwipSlide>
-          </SwiperSlide>
+          {
+            testimonials.map(testimonial => <SwiperSlide key={testimonial._id}>
+              <SwipSlide testimonial={testimonial} className='hidden lg:block'></SwipSlide>
+            </SwiperSlide>)
+          }
+          
+         
 
           
 

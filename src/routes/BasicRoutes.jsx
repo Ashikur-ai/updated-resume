@@ -15,6 +15,7 @@ import ManageProjects from '../pages/adminSide/projects/ManageProjects';
 import Dashboard from '../pages/adminSide/dashboard/Dashboard';
 import UpdateServicePage from '../pages/adminSide/services/UpdateServicePage';
 import ManageTestimonial from '../pages/adminSide/testimonial/ManageTestimonial';
+import UpdateTestimonialPage from '../pages/adminSide/testimonial/UpdateTestimonialPage';
 
 const router = createBrowserRouter([
   {
@@ -78,9 +79,14 @@ const router = createBrowserRouter([
         path: "projects",
         element: <ManageProjects></ManageProjects>
       },
+      // testimonial related routes
       {
         path: "testimonial",
         element: <ManageTestimonial></ManageTestimonial>
+      },
+      {
+        path: "update-testimonial/:id",
+        element: <UpdateTestimonialPage></UpdateTestimonialPage>
       }
       
     ]

@@ -84,8 +84,8 @@ const ManageServices = () => {
                 text: "Service has been deleted.",
                 icon: "success"
               });
-              refetch()
             }
+            refetch();
           })
           .catch(err => {
             console.log(err);
