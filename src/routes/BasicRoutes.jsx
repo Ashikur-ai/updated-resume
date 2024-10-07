@@ -16,6 +16,9 @@ import Dashboard from '../pages/adminSide/dashboard/Dashboard';
 import UpdateServicePage from '../pages/adminSide/services/UpdateServicePage';
 import ManageTestimonial from '../pages/adminSide/testimonial/ManageTestimonial';
 import UpdateTestimonialPage from '../pages/adminSide/testimonial/UpdateTestimonialPage';
+import AdminLoginForm from '../pages/clientSide/login/AdminLoginForm';
+import AdminRegisterForm from '../pages/clientSide/register/AdminRegisterForm';
+import PrivateRoute from './PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -57,10 +60,22 @@ const router = createBrowserRouter([
     ]
   },
 
+  {
+    path: "/admin-login",
+    element: <AdminLoginForm></AdminLoginForm>
+  },
+
+  // {
+  //   path: "/admin-register",
+  //   element: <AdminRegisterForm></AdminRegisterForm>
+  // },
+
   // Dashboard related layouts 
   {
     path: "/dashboard",
-    element: <DashboardLayout></DashboardLayout>,
+    element: <PrivateRoute>
+      <DashboardLayout></DashboardLayout>
+    </PrivateRoute>,
     children: [
       {
         path: "/dashboard",
@@ -88,7 +103,7 @@ const router = createBrowserRouter([
         path: "update-testimonial/:id",
         element: <UpdateTestimonialPage></UpdateTestimonialPage>
       }
-      
+
     ]
   }
 

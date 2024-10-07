@@ -35,7 +35,7 @@ const Banner = () => {
           <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1725679411/React%20class/Portfolio%20Project/so0ncjl2y6almdqzdq8r.png" alt="" className='w-5 absolute -top-5 -right-3' />
         </div>
         <div className="relative -z-10">
-          <p className='lg:text-7xl md:text-5xl text-4xl text-center font-semibold'>I&apos;m <span className='text-theme_primary'>Ashikur</span>, <br /> FullStack Developer</p>
+          <p className='lg:text-7xl md:text-5xl text-4xl text-center font-semibold'>I&apos;m <span className='text-theme_primary'>Ashikur</span>, <br /> MERNstack Developer</p>
           <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1725679411/React%20class/Portfolio%20Project/so0ncjl2y6almdqzdq8r.png" alt="" className='w-12 rotate-180 absolute -bottom-8 -left-7' />
         </div>
       </div>
