@@ -19,6 +19,7 @@ import UpdateTestimonialPage from '../pages/adminSide/testimonial/UpdateTestimon
 import AdminLoginForm from '../pages/clientSide/login/AdminLoginForm';
 import AdminRegisterForm from '../pages/clientSide/register/AdminRegisterForm';
 import PrivateRoute from './PrivateRoute';
+import UpdateProject from '../pages/adminSide/projects/UpdateProject';
 
 const router = createBrowserRouter([
   {
@@ -102,6 +103,12 @@ const router = createBrowserRouter([
       {
         path: "update-testimonial/:id",
         element: <UpdateTestimonialPage></UpdateTestimonialPage>
+      },
+
+      // project related routes 
+      {
+        path: "update-project/:id",
+        element: <UpdateProject></UpdateProject>
       }
 
     ]
