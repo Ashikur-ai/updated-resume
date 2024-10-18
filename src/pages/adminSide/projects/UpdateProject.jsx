@@ -3,15 +3,13 @@ import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
-
+import { uploadImage } from '../../../uploadImg/UploadImage';
 
 const UpdateProject = () => {
-  const [serviceId, setServiceId] = useState('');
-  const [projectImgUrl, setProjectImgUrl] = useState('');
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [liveLink, setLiveLink] = useState('');
-  const [erdLink, setErdLink] = useState('');
+  window.scrollTo(0, 0);
+  const [imageName, setImageName] = useState('');
+  const [loading, setLoading] = useState(false); // Added loading state
+
   const { id } = useParams();
 
   const axiosPublic = useAxiosPublic();
@@ -24,56 +22,96 @@ const UpdateProject = () => {
     }
   })
 
-  const handleSubmit = (e) => {
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setImageName(file.name); // Set the image file name in state
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
-    const projectData = {
-      service_id: serviceId,
+    const image = form.image.files[0];
+    const title = form.title.value;
+    const description = form.description.value;
+    const live_link = form.live_link.value;
+    const erd_link = form.erd_link.value;
 
-      project_img_url: projectImgUrl,
-      title,
-      description,
-      live_link: liveLink,
-      erd_link: erdLink,
-    };
+    setLoading(true); // Start loading
 
-    axiosPublic.put(`/project/${project._id}`, projectData)
-      .then(res => {
-        if (res) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Project Updated",
-            showConfirmButton: false,
-            timer: 1500
-          });
-        }
-        refetch();
-      })
-      .catch()
+    try {
+      // upload image to cloudinary 
+      let project_img_url = '';
+      if (!image?.name) {
+        project_img_url = '';
+      } else {
+        project_img_url = await uploadImage(image);
+      }
+
+      const projectData = { project_img_url, title, description, live_link, erd_link };
+
+
+      await axiosPublic.put(`/project/${project._id}`, projectData);
+
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Project Updated",
+        showConfirmButton: false,
+        timer: 1500
+      });
+      refetch();
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+      });
+    } finally {
+      setLoading(false); // End loading
+    }
+
     form.reset();
-
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="bg-white shadow-lg rounded-lg p-8 max-w-lg w-full">
+    <div className="flex items-center justify-center bg-gray-50">
+      <div className="bg-white shadow-lg rounded-lg p-8 w-1/2">
         <h2 className="text-2xl font-bold text-gray-800 text-center mb-6">Update {project.title} Project</h2>
         <form onSubmit={handleSubmit}>
-          
+
           <div className="mb-4">
-            <label htmlFor="project-img-url" className="block text-sm font-medium text-gray-700">
-              Project Image URL
-            </label>
-            <input
-              type="text"
-              id="project-img-url"
-              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              placeholder="Enter image URL"
-              value={projectImgUrl}
-              onChange={(e) => setProjectImgUrl(e.target.value)}
-              
-            />
+            {/* Image Upload Section */}
+            <div className="flex flex-col items-center">
+
+              <label className="block border-2 border-dashed border-gray-300 w-full h-64 flex flex-col justify-center items-center cursor-pointer">
+                {/* Hidden file input field */}
+                <input
+                  type="file"
+                  className="hidden"
+                  name="image"
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                />
+                <span className="text-green-600 text-2xl">+ Upload Person's Image</span>
+                <span className="text-sm text-gray-500">Supported Format:png, jpg, jpeg, webp</span>
+              </label>
+
+              {/* Display the uploaded image name if available */}
+              {imageName && (
+                <span className="text-gray-700 mt-2 text-sm">
+                  Uploaded: {imageName}
+                </span>
+              )}
+
+            </div>
+            <p>Already uploaded image</p>
+            <div className="avatar">
+              <div className="ring-primary ring-offset-base-100 w-24 mt-3 rounded-full ring ring-offset-2">
+                <img src={project?.project_img_url} alt="Uploaded Project" />
+              </div>
+            </div>
           </div>
 
           <div className="mb-4">
@@ -85,9 +123,8 @@ const UpdateProject = () => {
               id="title"
               className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               placeholder="Enter title"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              
+              name='title'
+              defaultValue={project?.title}
             />
           </div>
 
@@ -99,10 +136,9 @@ const UpdateProject = () => {
               id="description"
               className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               placeholder="Enter description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
+              name='description'
+              defaultValue={project?.description}
               rows={3}
-              
             />
           </div>
 
@@ -115,9 +151,8 @@ const UpdateProject = () => {
               id="live-link"
               className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               placeholder="Enter live link"
-              value={liveLink}
-              onChange={(e) => setLiveLink(e.target.value)}
-              
+              name='live_link'
+              defaultValue={project?.live_link}
             />
           </div>
 
@@ -130,23 +165,23 @@ const UpdateProject = () => {
               id="erd-link"
               className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               placeholder="Enter ERD link"
-              value={erdLink}
-              onChange={(e) => setErdLink(e.target.value)}
-              
+              name='erd_link'
+              defaultValue={project?.erd_link}
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-150 ease-in-out"
+            className={`w-full py-2 px-4 rounded-lg text-white transition duration-150 ease-in-out ${loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700 focus:ring-2 focus:ring-blue-500'
+              }`}
+            disabled={loading}  // Disable button during loading
           >
-            Update Project
+            {loading ? 'Updating...' : 'Update Project'}  {/* Show loading text */}
           </button>
         </form>
       </div>
     </div>
   );
 };
-
 
 export default UpdateProject;

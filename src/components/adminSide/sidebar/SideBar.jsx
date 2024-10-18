@@ -8,6 +8,7 @@ import { RiAdminLine } from 'react-icons/ri';
 import { RxDashboard } from 'react-icons/rx';
 import { NavLink } from 'react-router-dom';
 import { SiNginxproxymanager } from 'react-icons/si';
+import { SiHyperskill } from "react-icons/si";
 
 // update code 
 import { FaHome, FaUsers, FaWpforms } from 'react-icons/fa';
@@ -55,6 +56,12 @@ const Sidebar = () => {
     </>
 
   const testimonialUrls =
+    <>
+      <NavigationItem to="/dashboard/addTestimonial" icon={MdAddCircle} label="Add Testimonial" />
+      <NavigationItem to="/dashboard/manageTestimonial" icon={SiNginxproxymanager} label="Manage Testimonial" />
+    </>
+  
+  const skillsUrls =
     <>
       <NavigationItem to="/dashboard/addTestimonial" icon={MdAddCircle} label="Add Testimonial" />
       <NavigationItem to="/dashboard/manageTestimonial" icon={SiNginxproxymanager} label="Manage Testimonial" />
@@ -128,6 +135,14 @@ const Sidebar = () => {
                 to="/dashboard/testimonial"
                 icon={MdOutlineRateReview}
                 label="Testimonials"
+              />
+            </li>
+
+            <li className="mb-4">
+              <NavigationItem
+                to="/dashboard/skills"
+                icon={SiHyperskill}
+                label="Skills"
               />
             </li>
 

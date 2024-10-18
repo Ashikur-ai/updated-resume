@@ -27,9 +27,25 @@ const Dashboard = () => {
     }
   })
 
+  // projects 
+  const { data: projects = [] } = useQuery({
+    queryKey: ['projects'],
+    queryFn: async () => {
+      const res = await axiosPublic.get('/project');
+      return res.data;
+    }
+  })
 
+  // skills
+  
+  const { data: skills = [] } = useQuery({
+    queryKey: ['skills'],
+    queryFn: async () => {
+      const res = await axiosPublic.get('/skills');
+      return res.data;
+    }
+  })
 
- 
 
   return (
     <div>
@@ -50,47 +66,42 @@ const Dashboard = () => {
           </div>
         </Link>
 
+        <Link to={'/dashboard/projects'}>
+          <div className="bg-gradient-to-r from-indigo-600 to-indigo-800 text-white p-6 rounded-lg flex justify-between items-center">
+            <div>
+              <MdDesignServices className='text-2xl md:text-4xl' />
+              <p className='text-2xl md:text-3xl'>Projects</p>
+            </div>
+            <p className="text-4xl md:text-2xl font-semibold">
+              <CountUp end={projects.length} />
+            </p>
+          </div>
+        </Link>
+
         <Link to={"/dashboard/testimonial"}>
           <div className="bg-gradient-to-r from-indigo-600 to-indigo-800 text-white p-6 rounded-lg flex justify-between items-center">
             <div>
               <MdOutlineRateReview className='text-2xl md:text-4xl' />
               <p className='text-2xl md:text-3xl'>Testimonials</p>
             </div>
-            <p className="text-4xl md:text-2xl font-semibold">{  testimonials.length }</p>
+            <p className="text-4xl md:text-2xl font-semibold">{testimonials.length}</p>
           </div>
         </Link>
 
-        <div className="bg-gradient-to-r from-indigo-600 to-indigo-800 text-white p-6 rounded-lg flex justify-between items-center">
-          <div>
-            <MdDesignServices className='text-2xl md:text-4xl' />
-            <p className='text-2xl md:text-3xl'>Services</p>
+        <Link to={"/dashboard/skills"}>
+          <div className="bg-gradient-to-r from-indigo-600 to-indigo-800 text-white p-6 rounded-lg flex justify-between items-center">
+            <div>
+              <MdOutlineRateReview className='text-2xl md:text-4xl' />
+              <p className='text-2xl md:text-3xl'>Skills</p>
+            </div>
+            <p className="text-4xl md:text-2xl font-semibold">{skills.length}</p>
           </div>
-          <p className="text-4xl md:text-2xl font-semibold">100</p>
-        </div>
+        </Link>
 
-        <div className="bg-gradient-to-r from-indigo-600 to-indigo-800 text-white p-6 rounded-lg flex justify-between items-center">
-          <div>
-            <MdDesignServices className='text-2xl md:text-4xl' />
-            <p className='text-2xl md:text-3xl'>Services</p>
-          </div>
-          <p className="text-4xl md:text-2xl font-semibold">100</p>
-        </div>
 
-        <div className="bg-gradient-to-r from-indigo-600 to-indigo-800 text-white p-6 rounded-lg flex justify-between items-center">
-          <div>
-            <MdDesignServices className='text-2xl md:text-4xl' />
-            <p className='text-2xl md:text-3xl'>Services</p>
-          </div>
-          <p className="text-4xl md:text-2xl font-semibold">100</p>
-        </div>
 
-        <div className="bg-gradient-to-r from-indigo-600 to-indigo-800 text-white p-6 rounded-lg flex justify-between items-center">
-          <div>
-            <MdDesignServices className='text-2xl md:text-4xl' />
-            <p className='text-2xl md:text-3xl'>Services</p>
-          </div>
-          <p className="text-4xl md:text-2xl font-semibold">100</p>
-        </div>
+        
+        
       </div>
     </div>
   );

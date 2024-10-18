@@ -57,7 +57,7 @@ const Navbar = () => {
                                     <div className="buttons">
                                     <Link to={"/services"}>
                                         <button
-                                            className="text-white hover:bg-theme_orange duration-300 py-3 px-8 hover:font-bold  rounded-3xl">Service</button>
+                                            className="text-white hover:bg-theme_orange duration-300 py-3 px-8 hover:font-bold  rounded-3xl">Stack Overflow</button>
                                     </Link>
                                     </div>
                                 </div>
@@ -91,7 +91,7 @@ const Navbar = () => {
                                     <div className="buttons">
                                         <Link to={"/services"}>
                                             <button
-                                                className="text-white hover:bg-theme_orange duration-300 py-3 px-8 hover:font-bold  rounded-3xl">Service</button>
+                                                className="text-white hover:bg-theme_orange duration-300 py-3 px-8 hover:font-bold  rounded-3xl">Stack Overflow</button>
                                         </Link>
                                     </div>
                                 </div>

@@ -35,6 +35,7 @@ const UpdateServicePage = () => {
     const form = e.target;
     const image = form.image.files[0];
     const serviceName = form.service.value;
+    const serviceTitle = form.title.value;
     const { service: incomingUrl } = serviceName;
 
     // Upload image to cloudinary
@@ -45,8 +46,8 @@ const UpdateServicePage = () => {
       serviceImageUrl = await uploadImage(image);
     }
 
-    const data = { serviceImageUrl, serviceName };
-    console.log(data);
+    const data = { serviceImageUrl, serviceName, serviceTitle };
+    // console.log(data);
     axiosPublic.put(`/service/${id}`, data)
       .then(res => {
         // console.log(res.data);
@@ -115,6 +116,16 @@ const UpdateServicePage = () => {
             <span className="label-text">Service Name</span>
           </label>
           <input type="text" name='service' defaultValue={service.serviceName} placeholder="Enter Service Name" className="input input-bordered" required />
+
+        </div>
+
+
+        {/* Text Input */}
+        <div className="form-control ">
+          <label className="label">
+            <span className="label-text">Service Title</span>
+          </label>
+          <input type="text" name='title' defaultValue={service.serviceTitle} placeholder="Enter Service Name" className="input input-bordered" required />
 
         </div>
 

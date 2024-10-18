@@ -18,7 +18,6 @@ const MyResult = () => {
     }
   })
 
-  console.log(testimonials);
 
   return (
     <div className="bg-black py-16 px-8 text-white   bg-contain  rounded-2xl">

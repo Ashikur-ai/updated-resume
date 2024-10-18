@@ -26,7 +26,7 @@ const ServiceSection = () => {
   return (
     <div>
       <div className="mt-40">
-        <p className='text-center font-semibold text-5xl'>MERN Stack Services I Offer</p>
+        <p className='text-center font-semibold text-5xl'>Services I Offer</p>
         <div className="divider"></div>
       </div>
 
@@ -52,7 +52,7 @@ const ServiceSection = () => {
             <MernCard
               tagName={"Custom web development :"}
               
-              subtext={`As a skilled MERN stack developer, I specialize in crafting custom web applications that perfectly align with your business goals and vision. I understand that one-size-fits-all solutions often fall short, and that's why I'm dedicated to delivering tailored web applications that meet your specific requirements.`}
+              subtext={`As a skilled Web developer, I specialize in crafting custom web applications that perfectly align with your business goals and vision. I understand that one-size-fits-all solutions often fall short, and that's why I'm dedicated to delivering tailored web applications that meet your specific requirements.`}
               icon={"https://res.cloudinary.com/deifi77os/image/upload/v1727197584/Portfolio/Service%20Section/MERN/axvmh90qeuhbpynugnoc.png"}
             />
           </SwiperSlide>
@@ -60,7 +60,7 @@ const ServiceSection = () => {
           <SwiperSlide>
             <MernCard
               tagName={"API integration : "}
-              subtext={`As a skilled MERN stack developer, I specialize in integrating your web application with third-party APIs to enhance functionality and expand your reach. APIs (Application Programming Interfaces) allow your application to interact with external services, providing access to valuable data and features.`}
+              subtext={`As a skilled Web developer, I specialize in integrating your web application with third-party APIs to enhance functionality and expand your reach. APIs (Application Programming Interfaces) allow your application to interact with external services, providing access to valuable data and features.`}
               icon={"https://res.cloudinary.com/deifi77os/image/upload/v1727197439/Portfolio/Service%20Section/MERN/oy6a1jetbac1kzhsihfy.png"}
             />
           </SwiperSlide>
@@ -68,7 +68,7 @@ const ServiceSection = () => {
           <SwiperSlide>
             <MernCard
               tagName={"Maintenance and support : "}
-              subtext={`As a dedicated MERN stack developer, I am committed to providing ongoing maintenance and support for your web application. I understand that even the best-built applications require ongoing attention to ensure optimal performance, security, and functionality.`}
+              subtext={`As a dedicated Web developer, I am committed to providing ongoing maintenance and support for your web application. I understand that even the best-built applications require ongoing attention to ensure optimal performance, security, and functionality.`}
               icon={"https://res.cloudinary.com/deifi77os/image/upload/v1727197373/Portfolio/Service%20Section/MERN/weuvnzswmzmsfuhx08yx.png"}
             />
           </SwiperSlide>
@@ -76,7 +76,7 @@ const ServiceSection = () => {
           <SwiperSlide>
             <MernCard
               tagName={"Consulting services : "}
-              subtext={`As a seasoned MERN stack developer, I offer expert consulting services to help you navigate the complexities of web development and make informed decisions about your projects. My goal is to provide you with the guidance and support you need to achieve your objectives.`}
+              subtext={`As a seasoned Web developer, I offer expert consulting services to help you navigate the complexities of web development and make informed decisions about your projects. My goal is to provide you with the guidance and support you need to achieve your objectives.`}
               icon={"https://res.cloudinary.com/deifi77os/image/upload/v1727198111/Portfolio/Service%20Section/MERN/ywrfjvvartxuj7ql8tr0.png"}
             />
           </SwiperSlide>

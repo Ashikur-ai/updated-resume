@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import ProjectTable from './ProjectTable';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const ManageProjects = () => {
   const axiosPublic = useAxiosPublic();
@@ -59,6 +60,9 @@ const ManageProjects = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Dashboard | Add Project</title>
+      </Helmet>
       <ProjectForm refetch={refetch} services={services}></ProjectForm>
       <ProjectTable projects={projects} handleDelete={handleDelete}></ProjectTable>
     </>

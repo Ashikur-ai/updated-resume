@@ -12,7 +12,7 @@ import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 import CardComponents from '../components/CardComponents';
 
-const MobileViewMernProjects = () => {
+const MobileViewMernProjects = ({ filteredProjects }) => {
   return (
     <>
       <Swiper
@@ -22,29 +22,13 @@ const MobileViewMernProjects = () => {
         modules={[Pagination]}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <CardComponents></CardComponents>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <CardComponents></CardComponents>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <CardComponents></CardComponents>
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardComponents></CardComponents>
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardComponents></CardComponents>
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardComponents></CardComponents>
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardComponents></CardComponents>
-        </SwiperSlide>
+        {
+          filteredProjects?.map(project => <SwiperSlide key={project._id}>
+            <CardComponents item = {project}></CardComponents>
+          </SwiperSlide>
+)
+        }
+       
         
       </Swiper>
     </>

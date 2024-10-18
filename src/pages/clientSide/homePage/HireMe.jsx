@@ -9,7 +9,7 @@ const HireMe = () => {
                     <div className="lg:w-1/2 ">
                         <div>
                             <img src="" alt="" />
-                            <img src="https://res.cloudinary.com/deifi77os/image/upload/v1726688995/Portfolio/anltbfkpdm079ctkrlo2.png" alt="" className="w-3/4 rounded-2xl mx-auto" />
+                            <img src="https://res.cloudinary.com/deifi77os/image/upload/v1728489598/Portfolio/axysrf2elblrl2ejucsj.jpg" alt="" className="w-3/4 rounded-2xl mx-auto" />
                         </div>
                     </div>
 

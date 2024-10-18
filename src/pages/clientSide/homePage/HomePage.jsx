@@ -7,6 +7,7 @@ import MyResult from './MyResult'
 import Portfolio from './Portfolio'
 
 import Service from './Service'
+import Skills from './Skills'
 import WorkExperience from './WorkExperience'
 
 const HomePage = () => {
@@ -15,8 +16,9 @@ const HomePage = () => {
       <Banner></Banner>
       <Service></Service>
       <WorkExperience></WorkExperience>
+      <Skills></Skills>
       <HireMe></HireMe>
-      <Portfolio></Portfolio>
+      {/* <Portfolio></Portfolio> */}
       <MyResult></MyResult>
       <Discus></Discus>
       {/* <BlogPost></BlogPost> */}

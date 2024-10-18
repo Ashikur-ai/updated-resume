@@ -14,12 +14,14 @@ import ManageServices from '../pages/adminSide/services/ManageServices';
 import ManageProjects from '../pages/adminSide/projects/ManageProjects';
 import Dashboard from '../pages/adminSide/dashboard/Dashboard';
 import UpdateServicePage from '../pages/adminSide/services/UpdateServicePage';
-import ManageTestimonial from '../pages/adminSide/testimonial/ManageTestimonial';
-import UpdateTestimonialPage from '../pages/adminSide/testimonial/UpdateTestimonialPage';
 import AdminLoginForm from '../pages/clientSide/login/AdminLoginForm';
 import AdminRegisterForm from '../pages/clientSide/register/AdminRegisterForm';
 import PrivateRoute from './PrivateRoute';
 import UpdateProject from '../pages/adminSide/projects/UpdateProject';
+import ManageSkillsPage from '../pages/adminSide/skills/ManageSkillsPage';
+import UpdateSkillPage from '../pages/adminSide/skills/UpdateSkillPage';
+import ManageTestimonials from '../pages/adminSide/testimonial/ManageTestimonials';
+import TestimonialUpdateForm from '../pages/adminSide/testimonial/TestimonialUpdateForm';
 
 const router = createBrowserRouter([
   {
@@ -57,6 +59,10 @@ const router = createBrowserRouter([
       {
         path: "/project",
         element: <ProjectPage></ProjectPage>
+      },
+      {
+        path: "/service/:id",
+        element: <ServicePage></ServicePage>
       }
     ]
   },
@@ -98,17 +104,27 @@ const router = createBrowserRouter([
       // testimonial related routes
       {
         path: "testimonial",
-        element: <ManageTestimonial></ManageTestimonial>
+        element: <ManageTestimonials></ManageTestimonials>
       },
       {
         path: "update-testimonial/:id",
-        element: <UpdateTestimonialPage></UpdateTestimonialPage>
+        element: <TestimonialUpdateForm></TestimonialUpdateForm>
       },
 
       // project related routes 
       {
         path: "update-project/:id",
         element: <UpdateProject></UpdateProject>
+      },
+
+      // skill related routes 
+      {
+        path: "skills",
+        element: <ManageSkillsPage></ManageSkillsPage>
+      },
+      {
+        path: "update-skills/:id",
+        element: <UpdateSkillPage></UpdateSkillPage>
       }
 
     ]

@@ -13,21 +13,24 @@ import 'swiper/css/pagination';
 import { EffectCoverflow, Pagination } from 'swiper/modules';
 import CardComponents from '../components/CardComponents';
 
-const MernProjects = () => {
+const MernProjects = ({ filteredProjects }) => {
   return (
     <div className='my-10'>
       <div className="mt-40">
         <p className='text-center font-semibold text-5xl'>My Recent Projects</p>
+        
         <div className="divider"></div>
+        
       </div>
 
+      
       <Swiper
         effect={'coverflow'}
         grabCursor={true}
         centeredSlides={true}
-        slidesPerView={3} // Display 3 slides at once
+        slidesPerView={2} // Display 3 slides at once
         spaceBetween={30} // Adds space between slides
-        initialSlide={2}
+        initialSlide={1}
         coverflowEffect={{
           rotate: 50,
           stretch: 0,
@@ -41,32 +44,14 @@ const MernProjects = () => {
         modules={[EffectCoverflow, Pagination]}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <CardComponents></CardComponents>
-        </SwiperSlide>
+        {
+          filteredProjects?.map(project => <SwiperSlide key={project._id}>
+            <CardComponents item={project}></CardComponents>
+          </SwiperSlide>
+          )
+        }
 
-        <SwiperSlide>
-          <CardComponents></CardComponents>
-        </SwiperSlide>
 
-        <SwiperSlide>
-          <CardComponents></CardComponents>
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardComponents></CardComponents>
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardComponents></CardComponents>
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardComponents></CardComponents>
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardComponents></CardComponents>
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardComponents></CardComponents>
-        </SwiperSlide>
 
 
         {/* Add more slides here */}

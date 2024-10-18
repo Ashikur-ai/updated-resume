@@ -34,6 +34,7 @@ const ManageServices = () => {
     const form = e.target;
     const image = form.image.files[0];
     const serviceName = form.service.value;
+    const serviceTitle = form.title.value;
     
     // Upload image to cloudinary
     let serviceImageUrl = '';
@@ -43,7 +44,7 @@ const ManageServices = () => {
       serviceImageUrl = await uploadImage(image);
     }
 
-    const data = { serviceImageUrl, serviceName };
+    const data = { serviceImageUrl, serviceName, serviceTitle };
     console.log(data);
     axiosPublic.post('/service', data)
       .then(res => {
@@ -141,6 +142,17 @@ const ManageServices = () => {
           <input type="text" name='service' placeholder="Enter Service Name" className="input input-bordered" required />
 
         </div>
+
+
+        {/* Text Input */}
+        <div className="form-control ">
+          <label className="label">
+            <span className="label-text">Service Title</span>
+          </label>
+          <input type="text" name='title' placeholder="Enter Service Name" className="input input-bordered" required />
+
+        </div>
+
 
         {/* Submit Button */}
         <div className="text-center">
