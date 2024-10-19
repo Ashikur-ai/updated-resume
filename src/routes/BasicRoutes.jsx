@@ -6,22 +6,21 @@ import ContactUs from '../pages/clientSide/contactUs/ContactUs';
 import ServicePage from '../pages/clientSide/servicesPage/ServicePage';
 import AboutUsPage from '../pages/clientSide/aboutUs/AboutUsPage';
 import ProjectPage from '../pages/clientSide/projectPage/ProjectPage';
-import MERNServices from '../pages/clientSide/servicesPage/mern/MERNServices';
-import LaravelServices from '../pages/clientSide/servicesPage/laravel/LaravelServices';
-import WordpressServices from '../pages/clientSide/servicesPage/wordpress/WordpressServices';
 import DashboardLayout from '../layouts/DashboardLayout';
 import ManageServices from '../pages/adminSide/services/ManageServices';
 import ManageProjects from '../pages/adminSide/projects/ManageProjects';
 import Dashboard from '../pages/adminSide/dashboard/Dashboard';
 import UpdateServicePage from '../pages/adminSide/services/UpdateServicePage';
 import AdminLoginForm from '../pages/clientSide/login/AdminLoginForm';
-import AdminRegisterForm from '../pages/clientSide/register/AdminRegisterForm';
 import PrivateRoute from './PrivateRoute';
 import UpdateProject from '../pages/adminSide/projects/UpdateProject';
 import ManageSkillsPage from '../pages/adminSide/skills/ManageSkillsPage';
 import UpdateSkillPage from '../pages/adminSide/skills/UpdateSkillPage';
 import ManageTestimonials from '../pages/adminSide/testimonial/ManageTestimonials';
 import TestimonialUpdateForm from '../pages/adminSide/testimonial/TestimonialUpdateForm';
+import SkillDetails from '../pages/clientSide/skillRelatedPages/skillDetails/SkillDetails';
+import ManageSkillProject from '../pages/adminSide/skillsProjects/ManageSkillProject';
+import UpdateSkillProject from '../pages/adminSide/skillsProjects/UpdateSkillProject';
 
 const router = createBrowserRouter([
   {
@@ -40,18 +39,9 @@ const router = createBrowserRouter([
         path: "/services",
         element: <ServicePage></ServicePage>
       },
-      {
-        path: "/mern-services",
-        element: <MERNServices></MERNServices>
-      },
-      {
-        path: "/laravel-services",
-        element: <LaravelServices></LaravelServices>
-      },
-      {
-        path: "/wordpress-services",
-        element: <WordpressServices></WordpressServices>
-      },
+      
+    
+      
       {
         path: "/about",
         element: <AboutUsPage></AboutUsPage>
@@ -63,6 +53,11 @@ const router = createBrowserRouter([
       {
         path: "/service/:id",
         element: <ServicePage></ServicePage>
+      },
+      // skill related pages 
+      {
+        path: "/skill-details/:id",
+        element: <SkillDetails></SkillDetails>
       }
     ]
   },
@@ -125,6 +120,14 @@ const router = createBrowserRouter([
       {
         path: "update-skills/:id",
         element: <UpdateSkillPage></UpdateSkillPage>
+      },
+      {
+        path: "skills-related-project",
+        element: <ManageSkillProject></ManageSkillProject>
+      },
+      {
+        path: "update-skill-project/:id",
+        element: <UpdateSkillProject></UpdateSkillProject>
       }
 
     ]

@@ -6,16 +6,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-
-import './style.css'
-
-// import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import MernCard from './MernCard';
-import MernReverseCard from './MernReverseCard';
+import ServiceCard from './ServiceCard';
 
-const ServiceSection = () => {
-
+const MyService = () => {
   const progressCircle = useRef(null);
   const progressContent = useRef(null);
   const onAutoplayTimeLeft = (s, time, progress) => {
@@ -30,7 +24,7 @@ const ServiceSection = () => {
         <div className="divider"></div>
       </div>
 
-      
+
       <div className="rounded-xl my-5 bg-black">
         <Swiper
           spaceBetween={30}
@@ -49,16 +43,16 @@ const ServiceSection = () => {
           className="mySwiper text-white rounded-xl"
         >
           <SwiperSlide>
-            <MernCard
+            <ServiceCard
               tagName={"Custom web development :"}
-              
+
               subtext={`As a skilled Web developer, I specialize in crafting custom web applications that perfectly align with your business goals and vision. I understand that one-size-fits-all solutions often fall short, and that's why I'm dedicated to delivering tailored web applications that meet your specific requirements.`}
               icon={"https://res.cloudinary.com/deifi77os/image/upload/v1727197584/Portfolio/Service%20Section/MERN/axvmh90qeuhbpynugnoc.png"}
             />
           </SwiperSlide>
 
           <SwiperSlide>
-            <MernCard
+            <ServiceCard
               tagName={"API integration : "}
               subtext={`As a skilled Web developer, I specialize in integrating your web application with third-party APIs to enhance functionality and expand your reach. APIs (Application Programming Interfaces) allow your application to interact with external services, providing access to valuable data and features.`}
               icon={"https://res.cloudinary.com/deifi77os/image/upload/v1727197439/Portfolio/Service%20Section/MERN/oy6a1jetbac1kzhsihfy.png"}
@@ -66,7 +60,7 @@ const ServiceSection = () => {
           </SwiperSlide>
 
           <SwiperSlide>
-            <MernCard
+            <ServiceCard
               tagName={"Maintenance and support : "}
               subtext={`As a dedicated Web developer, I am committed to providing ongoing maintenance and support for your web application. I understand that even the best-built applications require ongoing attention to ensure optimal performance, security, and functionality.`}
               icon={"https://res.cloudinary.com/deifi77os/image/upload/v1727197373/Portfolio/Service%20Section/MERN/weuvnzswmzmsfuhx08yx.png"}
@@ -74,7 +68,7 @@ const ServiceSection = () => {
           </SwiperSlide>
 
           <SwiperSlide>
-            <MernCard
+            <ServiceCard
               tagName={"Consulting services : "}
               subtext={`As a seasoned Web developer, I offer expert consulting services to help you navigate the complexities of web development and make informed decisions about your projects. My goal is to provide you with the guidance and support you need to achieve your objectives.`}
               icon={"https://res.cloudinary.com/deifi77os/image/upload/v1727198111/Portfolio/Service%20Section/MERN/ywrfjvvartxuj7ql8tr0.png"}
@@ -94,4 +88,4 @@ const ServiceSection = () => {
   );
 };
 
-export default ServiceSection;
+export default MyService;

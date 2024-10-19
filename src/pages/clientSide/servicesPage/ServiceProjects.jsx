@@ -11,19 +11,18 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { EffectCoverflow, Pagination } from 'swiper/modules';
-import CardComponents from '../components/CardComponents';
-
-const MernProjects = ({ filteredProjects }) => {
+import CardComponents from './components/CardComponents';
+const ServiceProjects = ({ filteredProjects }) => {
   return (
     <div className='my-10'>
       <div className="mt-40">
         <p className='text-center font-semibold text-5xl'>My Recent Projects</p>
-        
+
         <div className="divider"></div>
-        
+
       </div>
 
-      
+
       <Swiper
         effect={'coverflow'}
         grabCursor={true}
@@ -60,4 +59,4 @@ const MernProjects = ({ filteredProjects }) => {
   );
 };
 
-export default MernProjects;
+export default ServiceProjects;

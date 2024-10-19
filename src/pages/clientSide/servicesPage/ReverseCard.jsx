@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MernReverseCard = ({ tagName, subtext, icon }) => {
+const ReverseCard = ({ tagName, subtext, icon }) => {
   return (
     <div>
       <div className=" w-full text-white rounded-xl lg:flex flex-row-reverse justify-between items-center p-10">
@@ -15,4 +15,4 @@ const MernReverseCard = ({ tagName, subtext, icon }) => {
   );
 };
 
-export default MernReverseCard;
+export default ReverseCard;

@@ -1,7 +1,6 @@
 import React from 'react';
-import { FaReact } from 'react-icons/fa';
 
-const MernBanner = ({service}) => {
+const ServiceBanner = ({service}) => {
   return (
     <div>
       <div className="">
@@ -9,13 +8,13 @@ const MernBanner = ({service}) => {
           <div className=" flex justify-center  items-center lg:w-1/2">
             <div>
               <p className='text-6xl font-semibold'>
-                {service.serviceTitle}
+                {service?.serviceTitle}
               </p>
-              
-           </div>
+
+            </div>
           </div>
           <div className=" lg:w-1/2 flex justify-center text-[500px]  ">
-            <img src={service.serviceImageUrl} alt="" className='p-10' />
+            <img src={service?.serviceImageUrl} alt="" className='p-10' />
           </div>
         </div>
       </div>
@@ -23,4 +22,4 @@ const MernBanner = ({service}) => {
   );
 };
 
-export default MernBanner;
+export default ServiceBanner;

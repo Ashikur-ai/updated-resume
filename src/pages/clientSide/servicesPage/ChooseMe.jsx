@@ -7,15 +7,11 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import './style.css'
-
-// import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import MernCard from './MernCard';
-import MernReverseCard from './MernReverseCard';
+import './style.css'
+import ReverseCard from './ReverseCard';
 
-const ChooseMeSection = () => {
-
+const ChooseMe = () => {
   const progressCircle = useRef(null);
   const progressContent = useRef(null);
   const onAutoplayTimeLeft = (s, time, progress) => {
@@ -49,7 +45,7 @@ const ChooseMeSection = () => {
           className="mySwiper text-white rounded-xl"
         >
           <SwiperSlide>
-            <MernReverseCard
+            <ReverseCard
               tagName={"Passion for technology :"}
 
               subtext={`As a dedicated Computer Engineer, I am driven by a deep-rooted passion for technology. This passion fuels my desire to explore new frontiers, learn cutting-edge techniques, and contribute to the ever-evolving digital landscape.`}
@@ -58,7 +54,7 @@ const ChooseMeSection = () => {
           </SwiperSlide>
 
           <SwiperSlide>
-            <MernReverseCard
+            <ReverseCard
               tagName={"Client-centric approach : "}
               subtext={`As a dedicated Web Developer, I am committed to a client-centric approach that puts your needs and satisfaction at the forefront of everything I do. I believe that building strong relationships based on trust, understanding, and open communication is essential for delivering exceptional results.`}
               icon={"https://res.cloudinary.com/deifi77os/image/upload/v1727418599/Portfolio/Service%20Section/MERN/itxdwkridyoiqz7kzgf1.png"}
@@ -66,7 +62,7 @@ const ChooseMeSection = () => {
           </SwiperSlide>
 
           <SwiperSlide>
-            <MernReverseCard
+            <ReverseCard
               tagName={"Attention to detail :  "}
               subtext={`As a Web Developer, I am known for my meticulous attention to detail. I believe that even the smallest oversight can have a significant impact on the final outcome of a project. That's why I approach every task with a keen eye for precision and a commitment to excellence.`}
               icon={"https://res.cloudinary.com/deifi77os/image/upload/v1727418816/Portfolio/Service%20Section/MERN/mngo1h7fbaejxzzkc1sm.png"}
@@ -74,7 +70,7 @@ const ChooseMeSection = () => {
           </SwiperSlide>
 
           <SwiperSlide>
-            <MernReverseCard
+            <ReverseCard
               tagName={"Effective communication :"}
               subtext={`Effective communication is the key to building strong relationships and achieving success. I believe in open and honest dialogue, active listening, and adapting my communication style to different situations. This approach helps me create stronger connections, resolve conflicts effectively, and drive positive outcomes.`}
               icon={"https://res.cloudinary.com/deifi77os/image/upload/v1727419099/Portfolio/Service%20Section/MERN/g4zzj8cyputh4vwmd7hk.png"}
@@ -91,8 +87,7 @@ const ChooseMeSection = () => {
       </div>
 
     </div>
-
   );
 };
 
-export default ChooseMeSection;
+export default ChooseMe;

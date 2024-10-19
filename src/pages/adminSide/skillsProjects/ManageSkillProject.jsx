@@ -1,29 +1,28 @@
-
-import React, { useState } from 'react';
-import ProjectForm from './ProjectForm';
 import { useQuery } from '@tanstack/react-query';
-import useAxiosPublic from '../../../hooks/useAxiosPublic';
-import ProjectTable from './ProjectTable';
+import React from 'react';
 import Swal from 'sweetalert2';
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { Helmet } from 'react-helmet-async';
+import SkillProjectForm from './SkillProjectForm';
+import SkillProjectTable from './SkillProjectTable';
 
-const ManageProjects = () => {
-  
+const ManageSkillProject = () => {
+
   const axiosPublic = useAxiosPublic();
-  // get all projects 
+  // get all skill related projects 
   const { data: projects = [], refetch } = useQuery({
     queryKey: ['projects'],
     queryFn: async () => {
-      const res = await axiosPublic.get('/project');
+      const res = await axiosPublic.get('/skill-project');
       return res.data;
     }
   })
 
   // get all services 
-  const { data: services = [] } = useQuery({
-    queryKey: ['services'],
+  const { data: skills = [] } = useQuery({
+    queryKey: ['skills'],
     queryFn: async () => {
-      const res = await axiosPublic.get('/service');
+      const res = await axiosPublic.get('/skills');
       return res.data;
     }
   })
@@ -39,12 +38,12 @@ const ManageProjects = () => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosPublic.delete(`/project/${id}`)
+        axiosPublic.delete(`/skill-project/${id}`)
           .then(res => {
             if (res?.data?.deletedCount) {
               Swal.fire({
                 title: "Deleted!",
-                text: "Service has been deleted.",
+                text: "Project has been deleted.",
                 icon: "success"
               });
             }
@@ -62,12 +61,14 @@ const ManageProjects = () => {
   return (
     <>
       <Helmet>
-        <title>Dashboard | Add Project</title>
+        <title>Dashboard | Add Skill Related Project</title>
       </Helmet>
-      <ProjectForm refetch={refetch} services={services}></ProjectForm>
-      <ProjectTable projects={projects} handleDelete={handleDelete}></ProjectTable>
+
+      <SkillProjectForm refetch={refetch} skills={skills}></SkillProjectForm>
+
+      <SkillProjectTable projects={projects} handleDelete={handleDelete}></SkillProjectTable>
     </>
   );
 };
 
-export default ManageProjects;
+export default ManageSkillProject;

@@ -1,12 +1,13 @@
 import React from 'react';
-import MernBanner from './mern/MernBanner';
-import MernProjects from './mern/MernProjects';
-import MobileViewMernProjects from './mern/MobileViewMernProjects';
-import ServiceSection from './mern/ServiceSection';
-import ChooseMeSection from './mern/ChooseMeSection';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import { TypeAnimation } from 'react-type-animation';
+import ServiceBanner from './ServiceBanner';
+import ServiceProjects from './ServiceProjects';
+import MobileViewServiceProjects from './MobileViewServiceProjects';
+import MyService from './MyService';
+import ChooseMe from './ChooseMe';
 
 const ServicePage = () => {
   window.scrollTo(0, 0);
@@ -37,16 +38,44 @@ const ServicePage = () => {
 
   return (
     <div className='container mx-auto mt-5'>
-      <MernBanner service={service}></MernBanner>
-      <div className="hidden lg:block">
-        <MernProjects filteredProjects={filteredProjects}></MernProjects>
-      </div>
-      <div className="lg:hidden">
-        <MobileViewMernProjects filteredProjects={filteredProjects}></MobileViewMernProjects>
+
+      <div className="flex justify-center rounded-2xl">
+        <TypeAnimation
+          sequence={[
+            'Service Related ideas',
+            1000,
+            'Service Related Planning',
+            1000,
+            'Service Related Projects',
+            1000,
+
+          ]}
+          wrapper="span"
+          speed={50}
+          style={{
+            fontSize: '3em',
+            display: 'inline-block',
+            fontWeight: 'bold',
+            background: 'linear-gradient(to right, #2149B6, #001CD5)', // gradient text effect
+            WebkitBackgroundClip: 'text',
+            color: 'transparent', // required for gradient text
+          }}
+          repeat={Infinity}
+        />
       </div>
 
-      <ServiceSection></ServiceSection>
-      <ChooseMeSection></ChooseMeSection>
+
+
+      <ServiceBanner service={service}></ServiceBanner>
+      <div className="hidden lg:block">
+        <ServiceProjects filteredProjects={filteredProjects}></ServiceProjects>
+      </div>
+      <div className="lg:hidden">
+        <MobileViewServiceProjects filteredProjects={filteredProjects}></MobileViewServiceProjects>
+      </div>
+
+      <MyService></MyService>
+      <ChooseMe></ChooseMe>
 
 
 

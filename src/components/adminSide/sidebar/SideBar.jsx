@@ -147,6 +147,14 @@ const Sidebar = () => {
             </li>
 
             <li className="mb-4">
+              <NavigationItem
+                to="/dashboard/skills-related-project"
+                icon={SiHyperskill}
+                label="Skill Related Projects"
+              />
+            </li>
+
+            <li className="mb-4">
               <Dropdown buttonText="All Requests" urls={requestUrls} />
             </li>
 
