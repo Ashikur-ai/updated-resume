@@ -1,4 +1,5 @@
 
+import { Helmet } from 'react-helmet-async'
 import Banner from './Banner'
 import BlogPost from './BlogPost'
 import Discus from './Discus'
@@ -13,6 +14,9 @@ import WorkExperience from './WorkExperience'
 const HomePage = () => {
   return (
     <div className=' '>
+      <Helmet>
+        <title>Ashikur Portfolio</title>
+      </Helmet>
       <Banner></Banner>
       <Service></Service>
       <WorkExperience></WorkExperience>
