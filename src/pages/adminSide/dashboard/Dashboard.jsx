@@ -46,6 +46,15 @@ const Dashboard = () => {
     }
   })
 
+  // skill related projects 
+  const { data: skillRelatedProjects = [] } = useQuery({
+    queryKey: ['skillRelatedProjects'],
+    queryFn: async () => {
+      const res = await axiosPublic.get('skill-project');
+      return res.data;
+    }
+  })
+
 
   return (
     <div>
@@ -61,7 +70,7 @@ const Dashboard = () => {
               <p className='text-2xl md:text-3xl'>Services</p>
             </div>
             <p className="text-4xl md:text-2xl font-semibold">
-              <CountUp end={services.length} />
+              <CountUp end={services?.length} />
             </p>
           </div>
         </Link>
@@ -73,7 +82,7 @@ const Dashboard = () => {
               <p className='text-2xl md:text-3xl'>Projects</p>
             </div>
             <p className="text-4xl md:text-2xl font-semibold">
-              <CountUp end={projects.length} />
+              <CountUp end={projects?.length} />
             </p>
           </div>
         </Link>
@@ -84,7 +93,7 @@ const Dashboard = () => {
               <MdOutlineRateReview className='text-2xl md:text-4xl' />
               <p className='text-2xl md:text-3xl'>Testimonials</p>
             </div>
-            <p className="text-4xl md:text-2xl font-semibold">{testimonials.length}</p>
+            <p className="text-4xl md:text-2xl font-semibold">{testimonials?.length}</p>
           </div>
         </Link>
 
@@ -94,7 +103,17 @@ const Dashboard = () => {
               <MdOutlineRateReview className='text-2xl md:text-4xl' />
               <p className='text-2xl md:text-3xl'>Skills</p>
             </div>
-            <p className="text-4xl md:text-2xl font-semibold">{skills.length}</p>
+            <p className="text-4xl md:text-2xl font-semibold">{skills?.length}</p>
+          </div>
+        </Link>
+
+        <Link to={"/dashboard/skills-related-project"}>
+          <div className="bg-gradient-to-r from-indigo-600 to-indigo-800 text-white p-6 rounded-lg flex justify-between items-center">
+            <div>
+              <MdOutlineRateReview className='text-2xl md:text-4xl' />
+              <p className='text-2xl md:text-3xl'>Project Based on Skills</p>
+            </div>
+            <p className="text-4xl md:text-2xl font-semibold">{skillRelatedProjects?.length}</p>
           </div>
         </Link>
 

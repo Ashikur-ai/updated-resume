@@ -3,8 +3,10 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { TypeAnimation } from 'react-type-animation';
 import useAxiosPublic from '../../../../hooks/useAxiosPublic';
+import SkillProjectsList from '../components/SkillProjectsList';
 
 const SkillDetails = () => {
+  window.scrollTo(0, 0);
   const { id } = useParams();
   const axiosPublic = useAxiosPublic();
   const { data: projects = [] } = useQuery({
@@ -45,6 +47,11 @@ const SkillDetails = () => {
           repeat={Infinity}
         />
       </div>
+
+
+      <SkillProjectsList filteredProjects={filteredProjects}></SkillProjectsList>
+
+
     </div>
   );
 };

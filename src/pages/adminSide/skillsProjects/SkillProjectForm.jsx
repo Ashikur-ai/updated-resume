@@ -5,7 +5,7 @@ import { uploadImage } from '../../../uploadImg/UploadImage';
 
 const SkillProjectForm = ({ refetch, skills }) => {
   const [skillId, setSkillId] = useState('');
-  const [projectImgUrl, setProjectImgUrl] = useState('');
+  const [skillName, setSkillName] = useState('');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [liveLink, setLiveLink] = useState('');
@@ -13,17 +13,14 @@ const SkillProjectForm = ({ refetch, skills }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [imageName, setImageName] = useState('');
 
-
   const axiosPublic = useAxiosPublic();
 
   const handleImageUpload = (e) => {
-    console.log("hello from handleImageUpload")
     const file = e.target.files[0];
     if (file) {
       setImageName(file.name); // Set the image file name in state
     }
   };
-  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,17 +28,15 @@ const SkillProjectForm = ({ refetch, skills }) => {
     setIsLoading(true);
     const image = form.image.files[0];
 
-    // Upload image to cloudinary 
+    // Upload image to cloudinary
     let project_imgUrl = '';
-    if (!image?.name) {
-      project_imgUrl = '';
-    } else {
+    if (image?.name) {
       project_imgUrl = await uploadImage(image);
     }
 
     const projectData = {
       skill_id: skillId,
-
+      skill_name: skillName, // Include skill name in the project data
       project_img_url: project_imgUrl,
       title,
       description,
@@ -49,7 +44,7 @@ const SkillProjectForm = ({ refetch, skills }) => {
       erd_link: erdLink,
     };
 
-    // console.log(projectData);
+    console.log(projectData);
 
     axiosPublic.post('/skill-project', projectData)
       .then(res => {
@@ -69,11 +64,10 @@ const SkillProjectForm = ({ refetch, skills }) => {
         setIsLoading(false);
       });
     form.reset();
-
   };
 
   return (
-    <div className=" flex items-center justify-center bg-gray-50">
+    <div className="flex items-center justify-center bg-gray-50">
       <div className="bg-white shadow-lg rounded-lg p-8 w-1/2">
         <h2 className="text-2xl font-bold text-gray-800 text-center mb-6">Create New Skill Related Project</h2>
         <form onSubmit={handleSubmit}>
@@ -85,24 +79,30 @@ const SkillProjectForm = ({ refetch, skills }) => {
               id="service"
               className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               value={skillId}
-              onChange={(e) => setSkillId(e.target.value)}
+              onChange={(e) => {
+                const selectedSkillId = e.target.value;
+                setSkillId(selectedSkillId);
+
+                // Find the selected skill by id and set both skillId and skillName
+                const selectedSkill = skills.find(skill => skill._id === selectedSkillId);
+                if (selectedSkill) {
+                  setSkillName(selectedSkill.name); // Store skill name in state
+                }
+              }}
               required
             >
               <option value="" disabled>Select Skill</option>
-              {
-                skills?.map(skill =>
-
-                  <option className='text-black' key={skill._id} value={skill._id}>{skill?.name}</option>
-                )
-              }
-
+              {skills?.map(skill => (
+                <option className='text-black' key={skill._id} value={skill._id}>
+                  {skill?.name}
+                </option>
+              ))}
             </select>
           </div>
 
           {/* Image Upload Section */}
           <div className="flex flex-col items-center mb-4">
             <label className="block border-2 border-dashed border-gray-300 w-full h-64 flex flex-col justify-center items-center cursor-pointer">
-              {/* Hidden file input field */}
               <input
                 type="file"
                 className="hidden"

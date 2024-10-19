@@ -1,7 +1,12 @@
+import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
 
 const SkillProjectTable = ({ projects, handleDelete }) => {
+
+  
+
   return (
     <>
       <div className=" flex items-center justify-center bg-gray-50 mt-10">
@@ -13,6 +18,7 @@ const SkillProjectTable = ({ projects, handleDelete }) => {
                 <tr className="bg-blue-600 text-white text-left">
                   <th className="py-3 px-6">#</th>
                   <th className="py-3 px-6">Title</th>
+                  <th className="py-3 px-6">Skill</th>
 
                   <th className="py-3 px-6">Live Link</th>
                   <th className="py-3 px-6">ERD Link</th>
@@ -24,6 +30,7 @@ const SkillProjectTable = ({ projects, handleDelete }) => {
                   <tr key={index} className="border-b">
                     <td className="py-3 px-6">{index + 1}</td>
                     <td className="py-3 px-6">{project.title}</td>
+                    <td className="py-3 px-6">{project.skill_name}</td>
 
                     <td className="py-3 px-6">
                       <Link to={project.live_link} className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">
