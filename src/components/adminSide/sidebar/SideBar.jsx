@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BsMenuButtonWideFill } from 'react-icons/bs';
+import { BsMenuButtonWideFill, BsStackOverflow } from 'react-icons/bs';
 import { GrMoney } from 'react-icons/gr';
 import { IoMdCard } from 'react-icons/io';
 import { IoCartOutline, IoCloseCircleOutline } from 'react-icons/io5';
@@ -154,35 +154,20 @@ const Sidebar = () => {
               />
             </li>
 
-            <li className="mb-4">
-              <Dropdown buttonText="All Requests" urls={requestUrls} />
-            </li>
 
             <li className="mb-4">
-              <Dropdown buttonText="Blogs" urls={blogUrls} />
-            </li>
-            <li className="mb-4">
-              <Dropdown buttonText="Comments" urls={comments} />
-            </li>
-
-            <li className="mb-4">
-              <Dropdown buttonText="HomePage content" urls={homepageUrls} />
-            </li>
-
-            <li className="mb-4">
-              <Dropdown buttonText="Faculty" urls={facultyUrls} />
-            </li>
-
-            <li className="mb-4">
-              <Dropdown buttonText="Testimonial" urls={testimonialUrls} />
-            </li>
-
-            <li className="mb-4">
-              <Dropdown
-                buttonText="Student Gallary"
-                urls={studentGallaryUrls}
+              <NavigationItem
+                to="/dashboard/manage-stack"
+                icon={BsStackOverflow}
+                label="Stack Overflow"
               />
             </li>
+
+            
+
+            
+
+            
           </ul>
         </nav>
       </aside></>

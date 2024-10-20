@@ -55,6 +55,15 @@ const Dashboard = () => {
     }
   })
 
+  // stack overflow 
+  const { data: stacks = [] } = useQuery({
+    queryKey: ['stacks'],
+    queryFn: async () => {
+      const res = await axiosPublic.get('stack-overflow');
+      return res.data;
+    }
+  })
+
 
   return (
     <div>
@@ -114,6 +123,17 @@ const Dashboard = () => {
               <p className='text-2xl md:text-3xl'>Project Based on Skills</p>
             </div>
             <p className="text-4xl md:text-2xl font-semibold">{skillRelatedProjects?.length}</p>
+          </div>
+        </Link>
+
+
+        <Link to={"/dashboard/manage-stack"}>
+          <div className="bg-gradient-to-r from-indigo-600 to-indigo-800 text-white p-6 rounded-lg flex justify-between items-center">
+            <div>
+              <MdOutlineRateReview className='text-2xl md:text-4xl' />
+              <p className='text-2xl md:text-3xl'>Stack Overflow</p>
+            </div>
+            <p className="text-4xl md:text-2xl font-semibold">{stacks?.length}</p>
           </div>
         </Link>
 

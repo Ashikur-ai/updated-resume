@@ -21,6 +21,10 @@ import TestimonialUpdateForm from '../pages/adminSide/testimonial/TestimonialUpd
 import SkillDetails from '../pages/clientSide/skillRelatedPages/skillDetails/SkillDetails';
 import ManageSkillProject from '../pages/adminSide/skillsProjects/ManageSkillProject';
 import UpdateSkillProject from '../pages/adminSide/skillsProjects/UpdateSkillProject';
+import StackOverFlowPage from '../pages/clientSide/stackOverflow/StackOverFlowPage';
+import StackDetailsPage from '../pages/clientSide/stackOverflow/StackDetailsPage';
+import ManageStackOverflowPage from '../pages/adminSide/stackOverflow/ManageStackOverflowPage';
+import UpdateStack from '../pages/adminSide/stackOverflow/UpdateStack';
 
 const router = createBrowserRouter([
   {
@@ -58,6 +62,15 @@ const router = createBrowserRouter([
       {
         path: "/skill-details/:id",
         element: <SkillDetails></SkillDetails>
+      },
+      // StackOverflow related pages 
+      {
+        path: "/stack-overflow",
+        element: <StackOverFlowPage></StackOverFlowPage>
+      },
+      {
+        path: "/stack-details/:id",
+        element: <StackDetailsPage></StackDetailsPage>
       }
     ]
   },
@@ -128,6 +141,14 @@ const router = createBrowserRouter([
       {
         path: "update-skill-project/:id",
         element: <UpdateSkillProject></UpdateSkillProject>
+      },
+      {
+        path: "manage-stack",
+        element: <ManageStackOverflowPage></ManageStackOverflowPage>
+      },
+      {
+        path: "update-stack/:id",
+        element: <UpdateStack></UpdateStack>
       }
 
     ]

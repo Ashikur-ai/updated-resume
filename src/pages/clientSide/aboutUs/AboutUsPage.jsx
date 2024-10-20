@@ -11,7 +11,7 @@ const AboutUsPage = () => {
       <Helmet>
         <title>Ashikur Portfolio | About Me</title>
       </Helmet>
-      <div className="lg:flex justify-center items-center my-20">
+      <div className="flex flex-col-reverse lg:flex lg:flex-row justify-center items-center my-20">
 
         <div className="lg:w-2/3">
           <div className="flex justify-center rounded-2xl">
@@ -48,7 +48,7 @@ const AboutUsPage = () => {
         
         <div className="lg:w-1/3">
           <div className="avatar">
-            <div className="ring-primary ring-offset-base-100 w-1/2 rounded-full ring ring-offset-2">
+            <div className="ring-primary ring-offset-base-100 w-1/2 mx-auto lg:mx-0 rounded-full ring ring-offset-2">
               <img src="https://res.cloudinary.com/deifi77os/image/upload/v1729357153/Portfolio/ho4xmlrrg3xwkqsw2qc7.jpg" alt="" className='' />
             </div>
           </div>

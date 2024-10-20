@@ -55,7 +55,7 @@ const Navbar = () => {
                                     </div>
 
                                     <div className="buttons">
-                                    <Link to={"/services"}>
+                                    <Link to={"/stack-overflow"}>
                                         <button
                                             className="text-white hover:bg-theme_orange duration-300 py-3 px-8 hover:font-bold  rounded-3xl">Stack Overflow</button>
                                     </Link>
@@ -89,7 +89,7 @@ const Navbar = () => {
                                     </div>
 
                                     <div className="buttons">
-                                        <Link to={"/services"}>
+                                        <Link to={"/stack-overflow"}>
                                             <button
                                                 className="text-white hover:bg-theme_orange duration-300 py-3 px-8 hover:font-bold  rounded-3xl">Stack Overflow</button>
                                         </Link>
