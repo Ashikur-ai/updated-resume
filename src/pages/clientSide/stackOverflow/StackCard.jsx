@@ -10,13 +10,15 @@ const StackCard = ({ stack }) => {
         <img
           src={stack?.stack_img_url}
           alt="Blog Cover"
-          className="w-full h-48 object-contain"
+          className="w-full h-48 object-cover"
         />
         <Link to={`/stack-details/${stack?._id}`}>
           <div className="p-6">
             <h3 className="text-xl font-bold text-gray-900 mb-2">{stack?.title}</h3>
-            <p className="text-sm text-gray-600 mb-4">
-              {stack?.description.slice(0, 200)}
+            <p className="text-sm text-gray-600 mb-4" dangerouslySetInnerHTML={{ __html: stack?.description.slice(0, 200) }}>
+              
+            </p>
+            <p  className='px-2'>
             </p>
             <div className="flex justify-between items-center">
 

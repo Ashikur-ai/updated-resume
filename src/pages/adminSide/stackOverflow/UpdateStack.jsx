@@ -1,23 +1,41 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { uploadImage } from '../../../uploadImg/UploadImage';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
+import { Editor } from '@tinymce/tinymce-react';
+import { Helmet } from 'react-helmet-async';
 
 const UpdateStack = () => {
   const [imageName, setImageName] = useState('');
   const [loading, setLoading] = useState(false);
+  const [tinyDescription, setTinyDescription] = useState('')
+
   const axiosPublic = useAxiosPublic();
   const { id } = useParams();
 
-  const { data: stack = {}, refetch } = useQuery({
+
+
+
+  const { data: stack = {}, refetch, isLoading } = useQuery({
     queryKey: ['stack'],
     queryFn: async () => {
       const res = await axiosPublic.get(`/stack-overflow/${id}`);
       return res.data;
     }
   })
+
+  useEffect(() => {
+    if (!isLoading) {
+      setTinyDescription(stack?.description);
+    }
+   
+  }, [stack, isLoading]);
+
+  const handleDescriptionChange = (value) => {
+    setTinyDescription(value)
+  };
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
@@ -38,7 +56,7 @@ const UpdateStack = () => {
     const author = form.author.value;
     const date = form.date.value;
     const category = form.category.value;
-    const description = form.description.value;
+    const description = tinyDescription;
     const video_url = form.video_url.value;
 
     
@@ -93,7 +111,10 @@ const UpdateStack = () => {
 
 
   return (
-    <div className="max-w-xl mx-auto p-4 bg-white shadow-md rounded-lg">
+    <div className="w-3/4 mx-auto p-4 bg-white shadow-md rounded-lg">
+      <Helmet>
+        <title>Dashboard | Update Stack</title>
+      </Helmet>
       <h1 className="text-2xl font-bold mb-6 text-center">Update {stack?.title}</h1>
 
       <form onSubmit={handleSubmit}>
@@ -171,7 +192,7 @@ const UpdateStack = () => {
           />
         </div>
 
-        <div className="mb-4">
+        {/* <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2" htmlFor="description">
             Description:
           </label>
@@ -181,7 +202,7 @@ const UpdateStack = () => {
             placeholder="Enter description"
             className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-        </div>
+        </div> */}
 
         <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2" htmlFor="video_url">
@@ -194,6 +215,29 @@ const UpdateStack = () => {
             placeholder="https://www.youtube.com/watch?v=example"
             className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
+        </div>
+
+        {/* Description */}
+        <div className="p-2 w-full mb-10 h-full">
+          <div className="relative">
+            <label className="leading-7 text-sm font-bold text-gray-600">Blog Description</label>
+            <Editor
+              apiKey='skupslsqi0fmj0896sym31pgszkyl2m25468z8pp5ul8gr1r'
+              init={{
+                height: 500,
+                max_height: "500",
+                width: '100%',
+                border: "0px",
+                //    menubar: false,
+                toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+                tinycomments_mode: 'embedded',
+                tinycomments_author: 'Author name',
+
+                ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+              }}
+              value={tinyDescription}
+              onEditorChange={handleDescriptionChange} />
+          </div>
         </div>
 
         <button

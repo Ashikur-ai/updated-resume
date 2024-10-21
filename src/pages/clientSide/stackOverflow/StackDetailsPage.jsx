@@ -48,10 +48,8 @@ const StackDetailsPage = () => {
 
         {/* Blog Content */}
         <div className="prose max-w-none text-gray-700 mb-10">
-          <p>
-            {stack?.description}
+          <p dangerouslySetInnerHTML={{ __html: stack?.description }} className='px-2'>
           </p>
-
         
         </div>
 

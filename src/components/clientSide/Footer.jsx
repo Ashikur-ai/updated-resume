@@ -23,7 +23,7 @@ const Footer = () => {
                         <div className="flex items-center gap-3 ">
                             <img src="https://res.cloudinary.com/deifi77os/image/upload/v1726680899/Portfolio/dylum9u4vdxunqttctma.png"
                                         type="image/x-icon" className="w-12 bg-theme_primary p-2 rounded-full" alt="" />
-                            <span className="font-bold text-2xl">ASHIKUR</span>
+                            <span className="font-bold text-2xl">ASHIKUR RAHMAN</span>
                         </div>
                         <p>
                             As a MERN Stack Developer, I specialize in building full-stack web applications using MongoDB, Express.js, React.js, and Node.js. My experience spans developing dynamic, scalable, and responsive web solutions that cater to various business needs. I have expertise in integrating frontend user experiences with backend functionality, ensuring efficient database management and seamless API connections.
@@ -43,9 +43,10 @@ const Footer = () => {
                         <div className="">
                             <p className='text-theme_primary font-bold text-xl mb-3'>Navigation</p>
                             <ul className='space-y-1'>
-                                <li>Home</li>
-                                <li>About</li>
-                                <li>Service</li>
+                                <Link to="/"><li>Home</li></Link>
+                                <Link to="/about"><li>About</li></Link>
+                                <Link to="/stack-overflow"><li>Stack Overflow</li></Link>
+                                <Link to="/stack-overflow"><li>CV</li></Link>
                                 <li>Resume</li>
                                 <li>Project</li>
                             </ul>
@@ -53,8 +54,8 @@ const Footer = () => {
                         <div className="">
                             <p className='text-theme_primary font-bold text-xl mb-3'>Contact</p>
                             <ul className='space-y-1'>
-                                <li>+880 2342346346346</li>
-                                <li>ashikur@gmail.com</li>
+                                <li>+880 1755450127</li>
+                                <li>ashikur1602@gmail.com</li>
                                
                             </ul>
                         </div>

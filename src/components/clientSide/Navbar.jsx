@@ -110,7 +110,7 @@ const Navbar = () => {
                                     <div className="buttons">
                                         <Link to={"https://drive.google.com/file/d/1McooBW_qjrTudp97BWw-D6vcESTS60jG/view?usp=sharing"} target="_blank">
                                             <button
-                                                className="text-white hover:bg-theme_orange duration-300 py-3 px-8  hover:font-bold  rounded-3xl">Resume</button>
+                                                className="text-white hover:bg-theme_orange duration-300 py-3 px-8  hover:font-bold  rounded-3xl">My CV</button>
                                         </Link>
                                     </div>
                                     <div className="buttons">

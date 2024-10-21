@@ -11,13 +11,17 @@ const educationData = [
 
 const EducationCard = ({ education }) => (
   <div className="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition-all duration-300 border">
-    <FaGraduationCap className='text-4xl' />
-    <h3 className="text-lg font-semibold text-blue-600 mb-2">{education.type}</h3>
-    <p className="text-gray-700"><strong>Institution:</strong> {education.institution}</p>
-    <p className="text-gray-700"><strong>Year:</strong> {education.year}</p>
-    <p className="text-gray-700"><strong>Grade:</strong> {education.grade}</p>
-    <p className="text-gray-700"><strong>Subject:</strong> {education.subject}</p>
-    <div className="flex my-5 items-center justify-center">
+    <div className="h-1/5">
+      <FaGraduationCap className='text-4xl' />
+    </div>
+    <div className="h-3/5">
+      <h3 className="text-lg font-semibold text-blue-600 mb-2">{education.type}</h3>
+      <p className="text-gray-700"><strong>Institution:</strong> {education.institution}</p>
+      <p className="text-gray-700"><strong>Year:</strong> {education.year}</p>
+      <p className="text-gray-700"><strong>Grade:</strong> {education.grade}</p>
+      <p className="text-gray-700"><strong>Subject:</strong> {education.subject}</p>
+    </div>
+    <div className="flex my-5 items-center justify-center h-1/5">
       <Link
         to={education.certificate}
         target="_blank"
