@@ -20,6 +20,7 @@ import NavigationItem from './NabigationItem';
 import Dropdown from './Dropdown';
 import { GrDashboard } from "react-icons/gr";
 import { MdDesignServices } from "react-icons/md";
+import { CiAlignTop } from 'react-icons/ci';
 
 
 
@@ -160,6 +161,14 @@ const Sidebar = () => {
                 to="/dashboard/manage-stack"
                 icon={BsStackOverflow}
                 label="Stack Overflow"
+              />
+            </li>
+
+            <li className="mb-4">
+              <NavigationItem
+                to="/dashboard/manage-top-project"
+                icon={CiAlignTop}
+                label="Top Projects"
               />
             </li>
 

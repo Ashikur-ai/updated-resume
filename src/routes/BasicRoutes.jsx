@@ -25,6 +25,8 @@ import StackOverFlowPage from '../pages/clientSide/stackOverflow/StackOverFlowPa
 import StackDetailsPage from '../pages/clientSide/stackOverflow/StackDetailsPage';
 import ManageStackOverflowPage from '../pages/adminSide/stackOverflow/ManageStackOverflowPage';
 import UpdateStack from '../pages/adminSide/stackOverflow/UpdateStack';
+import ManageTopProjects from '../pages/adminSide/topProjects/ManageTopProjects';
+import UpdateTopProjectForm from '../pages/adminSide/topProjects/UpdateTopProjectForm';
 
 const router = createBrowserRouter([
   {
@@ -149,6 +151,16 @@ const router = createBrowserRouter([
       {
         path: "update-stack/:id",
         element: <UpdateStack></UpdateStack>
+      },
+
+      // route for top Projects 
+      {
+        path: "manage-top-project",
+        element: <ManageTopProjects></ManageTopProjects>
+      },
+      {
+        path: "update-top-project/:id",
+        element: <UpdateTopProjectForm></UpdateTopProjectForm>
       }
 
     ]
