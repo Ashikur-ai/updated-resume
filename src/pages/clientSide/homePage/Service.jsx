@@ -27,34 +27,34 @@ const Service = () => {
 
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-16 w-10/12 mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 mt-16 w-10/12 mx-auto">
 
                     {
                         services.map(service =>
                             <div key={service._id} className="bg-white rounded-br-[100px] text-black rounded-3xl relative">
-                            <h2 className="text-xl py-8 px-4">{service.serviceName }</h2>
+                                <h2 className="text-xl p-2 text-center">{service.serviceName}</h2>
 
-                            {/* <hr className="" /> */}
-                            <div className=" flex justify-center text-blue-950 mb-5 pt-10">
-                                <div className="avatar">
-                                    <div className="ring-primary ring-offset-base-100 w-24 rounded-full ring ring-offset-2">
-                                        <img src={`${service.serviceImageUrl}`} />
+                                {/* <hr className="" /> */}
+                                <div className=" flex justify-center text-blue-950 mb-5 py-2">
+                                    <div className="avatar">
+                                        <div className="ring-primary ring-offset-base-100 w-24 rounded-full ring ring-offset-2">
+                                            <img src={`${service.serviceImageUrl}`} />
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div className="bg-black p-2 rounded-full bg-cover   absolute bottom-0 right-0">
+                                <div className="bg-black p-2 rounded-full bg-cover   absolute bottom-0 right-0">
                                     <Link to={`/service/${service._id}`}>
-                                    <button><GoArrowUpRight className="text-8xl bg-theme_primary p-5 rounded-full text-white"></GoArrowUpRight></button>
-                                </Link>
-                            </div>
+                                        <button><GoArrowUpRight className=" text-7xl bg-theme_primary lg:p-5 rounded-full text-white"></GoArrowUpRight></button>
+                                    </Link>
+                                </div>
 
-                        </div>)
+                            </div>)
                     }
 
 
 
-                   
+
 
 
 

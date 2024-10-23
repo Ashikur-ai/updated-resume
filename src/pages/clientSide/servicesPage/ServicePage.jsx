@@ -68,14 +68,14 @@ const ServicePage = () => {
 
       <ServiceBanner service={service}></ServiceBanner>
       <div className="hidden lg:block">
-        <ServiceProjects filteredProjects={filteredProjects}></ServiceProjects>
+        <ServiceProjects filteredProjects={filteredProjects} ServiceName={service?.serviceName}></ServiceProjects>
       </div>
       <div className="lg:hidden">
         <MobileViewServiceProjects filteredProjects={filteredProjects}></MobileViewServiceProjects>
       </div>
 
-      <MyService></MyService>
-      <ChooseMe></ChooseMe>
+      {/* <MyService></MyService>
+      <ChooseMe></ChooseMe> */}
 
 
 

@@ -12,11 +12,11 @@ import 'swiper/css/pagination';
 // import required modules
 import { EffectCoverflow, Pagination } from 'swiper/modules';
 import CardComponents from './components/CardComponents';
-const ServiceProjects = ({ filteredProjects }) => {
+const ServiceProjects = ({ filteredProjects, ServiceName }) => {
   return (
     <div className='my-10'>
       <div className="mt-40">
-        <p className='text-center font-semibold text-5xl'>My Recent Projects</p>
+        <p className='text-center font-semibold text-5xl'>All Projects in { ServiceName }</p>
 
         <div className="divider"></div>
 
