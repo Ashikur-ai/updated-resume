@@ -59,22 +59,22 @@ const Banner = () => {
             {/* button section  */}
 
 
-            <div className='bg-white btn btn-glass z-50 lg:-mt-20  lg:px-6  lg:bottom-10 bottom-7 lg:left-32 md:left-36 left-9 inline-block lg:h-20 rounded-[60px]'>
-              <div className='flex justify-center items-center  gap-3 opacity-[100%] mt-3 '>
+            <div className='bg-white btn btn-glass z-50 lg:-mt-20 -mt-6 lg:px-6  lg:bottom-10 bottom-7 lg:left-32 md:left-36 left-9 inline-block lg:h-20 rounded-[60px]'>
+              <div className='flex justify-center items-center  gap-3 opacity-[100%] lg:mt-5 mt-[2px] '>
                 <div className="bg-blue-500 text-white rounded-full hover:text-black hover:bg-white">
                   <Link to={`https://github.com/Ashikur-ai`} target='_blank'>
-                    <FaGithub className='size-14 p-2' />
+                    <FaGithub className='size-10 p-2' />
                   </Link>
                 </div>
                 <div className="bg-blue-500 text-white rounded-full hover:text-black hover:bg-white">
                   <Link to={`https://www.linkedin.com/in/ashikur-rahman-dev/`} target='_blank'>
-                    <FaLinkedin className='size-14 p-2' />
+                    <FaLinkedin className='size-10 p-2' />
                   </Link>
                 </div>
 
                 <div className="bg-blue-500 text-white rounded-full hover:text-black hover:bg-white">
                   <Link to={`https://www.facebook.com/profile.php?id=100031241947508`} target='_blank'>
-                    <FaFacebook className='size-14 p-2' />
+                    <FaFacebook className='size-10 p-2' />
                   </Link>
                 </div>
 
