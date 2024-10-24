@@ -20,15 +20,15 @@ const CardComponents = ({ item }) => {
         />
       </CardHeader>
       <CardBody>
-        <div className="mb-2 flex items-center justify-between px-5">
-          <Typography color="blue-gray" className="font-medium text-xl">
-            <p className="text-3xl">{item?.title}</p>
-          </Typography>
-          <Typography color="blue-gray" className="font-medium">
+        <div className="mb-2 border flex items-center justify-between rounded-lg px-2 py-1">
+          <div className="w-3/4 ">
+            <p className="text-3xl font-semibold">{item?.title}</p>
+          </div>
+          <div className="w-1/4  flex justify-end">
             <Link to={item?.live_link} target="_blank">
               <button className="btn bg-black text-white">Live Link</button>
             </Link>
-          </Typography>
+          </div>
         </div>
         <Typography
           variant="small"
@@ -39,7 +39,7 @@ const CardComponents = ({ item }) => {
         </Typography>
       </CardBody>
       <CardFooter className="pt-0">
-        <Link to={item?.erd_link}>
+        {/* <Link to={item?.erd_link}>
           <Button
             ripple={false}
             fullWidth={true}
@@ -47,7 +47,7 @@ const CardComponents = ({ item }) => {
           >
             ERD Diagram
           </Button>
-        </Link>
+        </Link> */}
       </CardFooter>
     </Card>
   );
