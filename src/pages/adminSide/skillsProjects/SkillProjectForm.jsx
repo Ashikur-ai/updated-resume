@@ -165,7 +165,7 @@ const SkillProjectForm = ({ refetch, skills }) => {
 
           <div className="mb-6">
             <label htmlFor="erd-link" className="block text-sm font-medium text-gray-700">
-              ERD Link
+              Github Link
             </label>
             <input
               type="text"

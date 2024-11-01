@@ -10,13 +10,13 @@ import CardComponents from '../../servicesPage/components/CardComponents';
 // import required modules
 import { EffectCoverflow, Pagination } from 'swiper/modules';
 
-const SkillProjectsList = ({ filteredProjects }) => {
+const SkillProjectsList = ({ filteredProjects, skillName }) => {
   return (
     <div className='my-10'>
       <div className="mt-40">
         {
           (filteredProjects.length) > 0 ?
-            <p className='text-center font-semibold text-5xl'>My Recent Projects</p>
+            <p className='text-center font-semibold text-5xl'> <span className="text-blue-500">({filteredProjects?.length})</span> - Projects in {skillName} </p>
             :
             <div className='flex flex-col justify-center items-center'>
               <p className=' font-semibold text-5xl'>No Projects Added</p>
@@ -37,7 +37,7 @@ const SkillProjectsList = ({ filteredProjects }) => {
         effect={'coverflow'}
         grabCursor={true}
         centeredSlides={true}
-        slidesPerView={3} // Display 3 slides at once
+        slidesPerView={2} // Display 3 slides at once
         spaceBetween={30} // Adds space between slides
         initialSlide={1}
         coverflowEffect={{

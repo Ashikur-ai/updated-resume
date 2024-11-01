@@ -10,6 +10,17 @@ const SkillDetails = () => {
   window.scrollTo(0, 0);
   const { id } = useParams();
   const axiosPublic = useAxiosPublic();
+
+  const { data: skill = {} } = useQuery({
+    queryKey: ['skill'],
+    queryFn: async () => {
+      const res = await axiosPublic.get(`/skills/${id}`);
+      return res.data;
+    }
+  })
+
+  console.log(skill);
+
   const { data: projects = [] } = useQuery({
     queryKey: ['skillRelatedProjects'],
     queryFn: async () => {
@@ -50,8 +61,9 @@ const SkillDetails = () => {
       </div>
 
       <div className="hidden lg:block">
+        
 
-        <SkillProjectsList filteredProjects={filteredProjects}></SkillProjectsList>
+        <SkillProjectsList filteredProjects={filteredProjects} skillName={skill?.name}></SkillProjectsList>
       </div>
       <div className="lg:hidden">
         <MobileViewServiceProjects filteredProjects={filteredProjects}></MobileViewServiceProjects>
