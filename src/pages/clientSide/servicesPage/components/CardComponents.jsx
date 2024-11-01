@@ -6,6 +6,7 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
+import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const CardComponents = ({ item }) => {
@@ -20,14 +21,22 @@ const CardComponents = ({ item }) => {
         />
       </CardHeader>
       <CardBody>
-        <div className="mb-2 border flex items-center justify-between rounded-lg px-2 py-1">
-          <div className="w-3/4 ">
-            <p className="text-3xl font-semibold">{item?.title}</p>
+        <div className="mb-2 border grid grid-cols-3 items-center justify-between rounded-lg px-2 py-1">
+          <div className="col-span-2">
+            <p className="text-xl font-semibold">{item?.title}</p>
           </div>
-          <div className="w-1/4  flex justify-end">
-            <Link to={item?.live_link} target="_blank">
-              <button className="btn bg-black text-white">Live Link</button>
-            </Link>
+          
+          <div className="flex gap-3 justify-end">
+            <div className="flex justify-end">
+              <Link to={item?.erd_link} target="_blank">
+                <button className="btn bg-black text-white"><FaGithub size={24} /> Link</button>
+              </Link>
+            </div>
+            <div className="">
+              <Link to={item?.live_link} target="_blank">
+                <button className="btn bg-black text-white">Live Link</button>
+              </Link>
+            </div>
           </div>
         </div>
         <Typography

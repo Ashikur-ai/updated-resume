@@ -37,7 +37,7 @@ const SkillProjectsList = ({ filteredProjects }) => {
         effect={'coverflow'}
         grabCursor={true}
         centeredSlides={true}
-        slidesPerView={4} // Display 3 slides at once
+        slidesPerView={3} // Display 3 slides at once
         spaceBetween={30} // Adds space between slides
         initialSlide={1}
         coverflowEffect={{

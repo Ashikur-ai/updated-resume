@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { TypeAnimation } from 'react-type-animation';
 import useAxiosPublic from '../../../../hooks/useAxiosPublic';
 import SkillProjectsList from '../components/SkillProjectsList';
+import MobileViewServiceProjects from '../../servicesPage/MobileViewServiceProjects';
 
 const SkillDetails = () => {
   window.scrollTo(0, 0);
@@ -48,8 +49,14 @@ const SkillDetails = () => {
         />
       </div>
 
+      <div className="hidden lg:block">
 
-      <SkillProjectsList filteredProjects={filteredProjects}></SkillProjectsList>
+        <SkillProjectsList filteredProjects={filteredProjects}></SkillProjectsList>
+      </div>
+      <div className="lg:hidden">
+        <MobileViewServiceProjects filteredProjects={filteredProjects}></MobileViewServiceProjects>
+      </div>
+
 
 
     </div>

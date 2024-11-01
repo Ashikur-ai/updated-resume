@@ -42,9 +42,9 @@ const UpdateProject = () => {
 
     try {
       // upload image to cloudinary 
-      let project_img_url = '';
+      let project_img_url = project?.project_img_url;
       if (!image?.name) {
-        project_img_url = '';
+        project_img_url = project?.project_img_url;
       } else {
         project_img_url = await uploadImage(image);
       }

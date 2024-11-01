@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { TypeAnimation } from 'react-type-animation';
 import WorkExperience from '../homePage/WorkExperience';
 import EducationComponent from './EducationComponent';
+import ProfessionalCertificate from './ProfessionalCertificate';
 
 const AboutUsPage = () => {
   window.scrollTo(0, 0);
@@ -59,6 +60,7 @@ const AboutUsPage = () => {
       </div>
       <EducationComponent></EducationComponent>
       <WorkExperience></WorkExperience>
+      <ProfessionalCertificate></ProfessionalCertificate>
 
     </div>
   );

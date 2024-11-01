@@ -16,7 +16,7 @@ const ServiceProjects = ({ filteredProjects, ServiceName }) => {
   return (
     <div className='my-10'>
       <div className="mt-40">
-        <p className='text-center font-semibold text-5xl'>All Projects in { ServiceName }</p>
+        <p className='text-center font-semibold text-5xl'> <span className="text-blue-500">({filteredProjects?.length})</span> - Projects in { ServiceName }</p>
 
         <div className="divider"></div>
 
@@ -44,11 +44,13 @@ const ServiceProjects = ({ filteredProjects, ServiceName }) => {
         className="mySwiper"
       >
         {
-          filteredProjects?.map(project => <SwiperSlide key={project._id}>
-            <CardComponents item={project}></CardComponents>
-          </SwiperSlide>
-          )
-        }
+          [...filteredProjects]?.reverse().map(project => (
+            <SwiperSlide key={project._id}>
+              <CardComponents item={project} />
+            </SwiperSlide>
+          ))
+}
+
 
 
 
