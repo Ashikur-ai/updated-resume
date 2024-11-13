@@ -27,6 +27,7 @@ import ManageStackOverflowPage from '../pages/adminSide/stackOverflow/ManageStac
 import UpdateStack from '../pages/adminSide/stackOverflow/UpdateStack';
 import ManageTopProjects from '../pages/adminSide/topProjects/ManageTopProjects';
 import UpdateTopProjectForm from '../pages/adminSide/topProjects/UpdateTopProjectForm';
+import AdminRegisterForm from '../pages/clientSide/register/AdminRegisterForm';
 
 const router = createBrowserRouter([
   {
@@ -82,10 +83,10 @@ const router = createBrowserRouter([
     element: <AdminLoginForm></AdminLoginForm>
   },
 
-  // {
-  //   path: "/admin-register",
-  //   element: <AdminRegisterForm></AdminRegisterForm>
-  // },
+  {
+    path: "/admin-register",
+    element: <AdminRegisterForm></AdminRegisterForm>
+  },
 
   // Dashboard related layouts 
   {
