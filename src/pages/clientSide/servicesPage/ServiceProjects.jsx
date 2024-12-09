@@ -12,6 +12,7 @@ import 'swiper/css/pagination';
 // import required modules
 import { EffectCoverflow, Pagination } from 'swiper/modules';
 import CardComponents from './components/CardComponents';
+import { Link } from 'react-router-dom';
 const ServiceProjects = ({ filteredProjects, ServiceName }) => {
   return (
     <div className='my-10'>
@@ -46,7 +47,9 @@ const ServiceProjects = ({ filteredProjects, ServiceName }) => {
         {
           [...filteredProjects]?.reverse().map(project => (
             <SwiperSlide key={project._id}>
-              <CardComponents item={project} />
+              
+                <CardComponents item={project} />
+                  
             </SwiperSlide>
           ))
 }

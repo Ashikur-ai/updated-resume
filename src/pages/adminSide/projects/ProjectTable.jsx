@@ -35,9 +35,12 @@ const ProjectTable = ({ projects, handleDelete }) => {
                       ERD Link
                     </Link>
                   </td>
-                  <td className="py-3 px-6">
+                  <td className="py-3 px-6 flex">
                     <Link to={`/dashboard/update-project/${project._id}`}>
                       <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 mr-2">Edit</button>
+                    </Link>
+                    <Link to={`/dashboard/project-details/${project._id}`}>
+                      <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 mr-2">Details</button>
                     </Link>
                     <button onClick={() => handleDelete(project._id)} className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700">Delete</button>
                   </td>

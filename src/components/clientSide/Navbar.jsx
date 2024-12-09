@@ -59,7 +59,7 @@ const Navbar = () => {
 
                     {/* Drawer Menu */}
                     <div
-                        className={`absolute inset-0 top-[60px] h-screen bg-black text-white transform ${isDrawerOpen ? "translate-x-0" : "-translate-x-full"
+                        className={`absolute inset-0 top-[60px] -left-10 h-screen bg-black text-white transform ${isDrawerOpen ? "translate-x-0" : "-translate-x-full"
                             } transition-transform duration-500 z-50`}>
                         <ul className="flex flex-col justify-center items-center mt-20">
                             {mobileLinks.map((link, index) => (

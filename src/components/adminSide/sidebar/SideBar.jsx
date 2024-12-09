@@ -127,17 +127,11 @@ const Sidebar = () => {
               <NavigationItem
                 to="/dashboard/projects"
                 icon={MdDesignServices}
-                label="Projects"
+                label="Service Related Projects"
               />
             </li>
 
-            <li className="mb-4">
-              <NavigationItem
-                to="/dashboard/testimonial"
-                icon={MdOutlineRateReview}
-                label="Testimonials"
-              />
-            </li>
+            
 
             <li className="mb-4">
               <NavigationItem
@@ -172,7 +166,13 @@ const Sidebar = () => {
               />
             </li>
 
-            
+            <li className="mb-4">
+              <NavigationItem
+                to="/dashboard/testimonial"
+                icon={MdOutlineRateReview}
+                label="Testimonials"
+              />
+            </li>
 
             
 

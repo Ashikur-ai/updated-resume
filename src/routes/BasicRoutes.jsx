@@ -28,6 +28,9 @@ import UpdateStack from '../pages/adminSide/stackOverflow/UpdateStack';
 import ManageTopProjects from '../pages/adminSide/topProjects/ManageTopProjects';
 import UpdateTopProjectForm from '../pages/adminSide/topProjects/UpdateTopProjectForm';
 import AdminRegisterForm from '../pages/clientSide/register/AdminRegisterForm';
+import ServiceProjectDetails from '../pages/clientSide/servicesPage/serviceRelatedProjectDetailsPage/ServiceProjectDetails';
+import SkillProjectDetails from '../pages/clientSide/skillRelatedPages/skillProjectDetailsPage/skillProjectDetails';
+import ProjectDetails from '../pages/adminSide/projects/ProjectDetails';
 
 const router = createBrowserRouter([
   {
@@ -57,14 +60,23 @@ const router = createBrowserRouter([
         path: "/project",
         element: <ProjectPage></ProjectPage>
       },
+      // service related routes 
       {
         path: "/service/:id",
         element: <ServicePage></ServicePage>
+      },
+      {
+        path: "/serviceProjectDetails/:id",
+        element: <ServiceProjectDetails></ServiceProjectDetails>
       },
       // skill related pages 
       {
         path: "/skill-details/:id",
         element: <SkillDetails></SkillDetails>
+      },
+      {
+        path: "/skillProjectDetails/:id",
+        element: <SkillProjectDetails></SkillProjectDetails>
       },
       // StackOverflow related pages 
       {
@@ -126,6 +138,10 @@ const router = createBrowserRouter([
       {
         path: "update-project/:id",
         element: <UpdateProject></UpdateProject>
+      },
+      {
+        path: "project-details/:id",
+        element: <ProjectDetails></ProjectDetails>
       },
 
       // skill related routes 

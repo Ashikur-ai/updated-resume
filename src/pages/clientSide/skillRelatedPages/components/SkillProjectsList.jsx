@@ -9,6 +9,7 @@ import 'swiper/css/pagination';
 import CardComponents from '../../servicesPage/components/CardComponents';
 // import required modules
 import { EffectCoverflow, Pagination } from 'swiper/modules';
+import SkillCardComponent from './SkillCardComponent';
 
 const SkillProjectsList = ({ filteredProjects, skillName }) => {
   return (
@@ -55,7 +56,8 @@ const SkillProjectsList = ({ filteredProjects, skillName }) => {
       >
         {
           filteredProjects?.map(project => <SwiperSlide key={project._id}>
-            <CardComponents item={project}></CardComponents>
+            {/* <CardComponents item={project}></CardComponents> */}
+            <SkillCardComponent item={project}></SkillCardComponent>
           </SwiperSlide>
           )
         }

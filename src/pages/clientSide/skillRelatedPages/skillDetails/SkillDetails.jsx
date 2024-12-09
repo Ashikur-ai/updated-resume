@@ -19,7 +19,7 @@ const SkillDetails = () => {
     }
   })
 
-  console.log(skill);
+  // console.log(skill);
 
   const { data: projects = [] } = useQuery({
     queryKey: ['skillRelatedProjects'],

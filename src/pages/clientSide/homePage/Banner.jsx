@@ -96,7 +96,7 @@ const Banner = () => {
               color1={'#0eb6f0'}
               size={32}
               color2={'#0eb6f0'} />
-            <p className='text-4xl font-bold'>3+ years</p>
+            <p className='text-4xl font-bold'>1+ years</p>
             <p className='font-medium'>Experience</p>
           </div>
         </div>

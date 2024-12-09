@@ -9,11 +9,11 @@ import {
 import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const CardComponents = ({ item }) => {
+const SkillCardComponent = ({ item }) => {
   console.log(item);
   return (
     <Card className="shadow-xl">
-      <Link to={`/serviceProjectDetails/${item._id}`}>
+      <Link to={`/skillProjectDetails/${item._id}`}>
         <CardHeader shadow={false} floated={false} className="h-96">
           <img
             src={item?.project_img_url}
@@ -42,7 +42,7 @@ const CardComponents = ({ item }) => {
             </div>
           </div>
         </div>
-        
+
       </CardBody>
       <CardFooter className="pt-0">
         {/* <Link to={item?.erd_link}>
@@ -59,4 +59,4 @@ const CardComponents = ({ item }) => {
   );
 };
 
-export default CardComponents;
+export default SkillCardComponent;
