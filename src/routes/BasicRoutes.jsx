@@ -31,6 +31,10 @@ import AdminRegisterForm from '../pages/clientSide/register/AdminRegisterForm';
 import ServiceProjectDetails from '../pages/clientSide/servicesPage/serviceRelatedProjectDetailsPage/ServiceProjectDetails';
 import SkillProjectDetails from '../pages/clientSide/skillRelatedPages/skillProjectDetailsPage/skillProjectDetails';
 import ProjectDetails from '../pages/adminSide/projects/ProjectDetails';
+import CheckoutPage from '../pages/clientSide/checkout/CheckoutPage';
+import Success from '../pages/clientSide/checkout/messages/Success';
+import Cancel from '../pages/clientSide/checkout/messages/Cancel';
+import Fail from '../pages/clientSide/checkout/messages/Fail';
 
 const router = createBrowserRouter([
   {
@@ -86,7 +90,24 @@ const router = createBrowserRouter([
       {
         path: "/stack-details/:id",
         element: <StackDetailsPage></StackDetailsPage>
+      },
+      {
+        path: "/checkout",
+        element: <CheckoutPage></CheckoutPage>
+      },
+      {
+        path: "/success",
+        element: <Success></Success>
+      },
+      {
+        path: "/cancel",
+        element: <Cancel></Cancel>
+      },
+      {
+        path: "/fail",
+        element: <Fail></Fail>
       }
+
     ]
   },
 
