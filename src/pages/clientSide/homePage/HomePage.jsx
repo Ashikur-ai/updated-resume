@@ -10,24 +10,54 @@ import Portfolio from './Portfolio'
 import Service from './Service'
 import Skills from './Skills'
 import WorkExperience from './WorkExperience'
+import Projects from './components/Projects'
+import ExpandableCards from '../projectPage/ExpandableCards'
+import { motion } from 'framer-motion'
+import ProjectSlider from '../../../components/clientSide/projectComponents/ProjectSlider'
+
 
 const HomePage = () => {
+
+  const scrollAnimationVariants = {
+    hidden: { opacity: 0, y: 2 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        type: "spring",
+        stiffness: 50
+      }
+    }
+  };
+
   return (
     <div className=' '>
       <Helmet>
         <title>Ashikur Portfolio</title>
       </Helmet>
       <Banner></Banner>
+      <Skills/>
+      <ProjectSlider />
       <Service></Service>
+      {/* <Projects/> */}
+      <motion.div
+        className="lg:block hidden pt-1"
+        initial="hidden"
+        whileInView="visible"
+        variants={scrollAnimationVariants}
+        viewport={{ once: true, amount: 0.2 }}>
+        <ExpandableCards></ExpandableCards>
+
+      </motion.div>
       <WorkExperience></WorkExperience>
-      <Skills></Skills>
       <HireMe></HireMe>
       {/* <Portfolio></Portfolio> */}
       <MyResult></MyResult>
       <Discus></Discus>
       {/* <BlogPost></BlogPost> */}
-     
-       
+
+
     </div>
   )
 }

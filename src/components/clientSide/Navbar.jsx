@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+import { motion } from "framer-motion"
+import { SlideDown, SlideUp } from "../../assets/animate";
+
 const Navbar = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
@@ -24,7 +27,11 @@ const Navbar = () => {
     };
 
     return (
-        <div>
+        <motion.div
+            variants={SlideUp(0.8)}
+            initial="initial"
+            whileInView={"animate"}
+        >
             {/* Mobile view */}
             <div className="lg:hidden">
                 <div className="dropdown relative">
@@ -141,8 +148,8 @@ const Navbar = () => {
                 </div>
             </div>
 
-       
-        </div >
+
+        </motion.div >
     );
 };
 

@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { GoArrowUpRight } from "react-icons/go";
 import { Link } from "react-router-dom";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import { motion } from "framer-motion"
 
 const Skills = () => {
   const axiosPublic = useAxiosPublic();
@@ -15,10 +16,21 @@ const Skills = () => {
   });
 
   return (
-    <div className="bg-black py-16 lg:px-8 text-white bg-contain rounded-2xl mb-3">
+    <motion.div
+      initial={{
+        scale: 0.5
+      }}
+      whileInView={{
+        scale: 1,
+        transition: {
+          duration: 0.5,
+          delay: 0.6,
+        },
+       }}
+      className="bg-black py-16 lg:px-8 text-white bg-contain rounded-2xl mb-3" >
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row md:flex-row justify-between gap-5">
-          <h2 className="text-5xl font-bold text-center lg:text-start">Project By <span className="text-theme_primary">Skills</span></h2>
+          <h2 className="text-5xl font-bold text-center lg:text-start">My <span className="text-theme_primary">Skills</span> Set</h2>
           <p className="text-xl font-medium opacity-80 lg:w-1/2 text-center lg:text-start">
             "Bringing Skills to Life Through Real-World Projects"
             <p> Showcasing expertise by linking every project to the skills that made it possible.</p>
@@ -65,7 +77,7 @@ const Skills = () => {
           </div>
         </section>
       </div>
-    </div>
+    </motion.div >
   );
 };
 
