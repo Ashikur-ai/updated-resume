@@ -63,30 +63,40 @@ const projects = [
 
 
 import ProjectCard from './ProjectCard';
+import BasicMagnetCard from '../common/BasicMagnetCard';
+import ProjectGrid from '../common/ProjectGrid';
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import { useQuery } from '@tanstack/react-query';
+import ProjectSkeleton from '../common/ProjectSkeleton';
 
 const ProjectSlider = () => {
+
+  const axiosPublic = useAxiosPublic();
+  // fetching all the services 
+  const { data: services, isLoading } = useQuery({
+    queryKey: ['services'],
+    queryFn: async () => {
+      const res = await axiosPublic.get('/service');
+      return res.data;
+    }
+  })
+  console.log(services);
+
   return (
     <div className="py-10 px-4  mx-auto">
-      <h2 className="text-3xl font-bold text-center mb-6">My Projects</h2>
-        <Swiper
-          modules={[Autoplay, Pagination]}
-          spaceBetween={30}
-          slidesPerView={1}
-          pagination={{ clickable: true }}
-          autoplay={{ delay: 4000 }}
-          breakpoints={{
-            640: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-          }}
-        >
-          {projects.map((project) => (
-            <SwiperSlide key={project.id}>
-              <ProjectCard project={project} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+      <p className='  text-3xl text-center my-10 font-bold'>Have a look<br /> <span className='text-text_primari font-bold text-5xl'>My All projects</span></p>
+      {
+        isLoading ?
+          <ProjectSkeleton />
+          :
+          <>
+
+            {
+              services?.map((item) => <ProjectGrid key={item?._id} service={item} projects={projects} />)
+            }
+          </>
+      }
+    </div>
 
   );
 };

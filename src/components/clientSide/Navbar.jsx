@@ -27,10 +27,8 @@ const Navbar = () => {
     };
 
     return (
-        <motion.div
-            variants={SlideUp(0.8)}
-            initial="initial"
-            whileInView={"animate"}
+        <div
+           
         >
             {/* Mobile view */}
             <div className="lg:hidden">
@@ -149,7 +147,7 @@ const Navbar = () => {
             </div>
 
 
-        </motion.div >
+        </div >
     );
 };
 

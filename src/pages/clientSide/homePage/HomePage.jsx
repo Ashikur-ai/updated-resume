@@ -37,19 +37,12 @@ const HomePage = () => {
         <title>Ashikur Portfolio</title>
       </Helmet>
       <Banner></Banner>
-      <Skills/>
+      <Skills />
+      <ExpandableCards />
       <ProjectSlider />
       <Service></Service>
       {/* <Projects/> */}
-      <motion.div
-        className="lg:block hidden pt-1"
-        initial="hidden"
-        whileInView="visible"
-        variants={scrollAnimationVariants}
-        viewport={{ once: true, amount: 0.2 }}>
-        <ExpandableCards></ExpandableCards>
 
-      </motion.div>
       <WorkExperience></WorkExperience>
       <HireMe></HireMe>
       {/* <Portfolio></Portfolio> */}
