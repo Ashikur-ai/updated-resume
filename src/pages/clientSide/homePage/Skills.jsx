@@ -17,16 +17,7 @@ const Skills = () => {
 
   return (
     <motion.div
-      initial={{
-        scale: 0.5
-      }}
-      whileInView={{
-        scale: 1,
-        transition: {
-          duration: 0.5,
-          delay: 0.6,
-        },
-       }}
+     
       className="bg-black py-16 lg:px-8 text-white bg-contain rounded-2xl mb-3" >
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row md:flex-row justify-between gap-5">
